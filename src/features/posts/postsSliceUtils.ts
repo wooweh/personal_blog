@@ -1,15 +1,15 @@
+import { v4 as uuidv4 } from "uuid"
 import { store } from "../../app/store"
 import {
   PostProps,
   Tags,
   deletePost,
   deleteTag,
-  setIsEditing,
   setPostMetadata,
   setPostShortContent,
+  setPostStatus,
   setTag,
 } from "./postsSlice"
-import { v4 as uuidv4 } from "uuid"
 import {
   deletePostOnDB,
   deleteTagOnDB,
@@ -24,7 +24,7 @@ import {
 
 */
 export function newPost() {
-  store.dispatch(setIsEditing(true))
+  store.dispatch(setPostStatus("draft"))
 }
 /*
 
@@ -32,7 +32,7 @@ export function newPost() {
 
 */
 export function editPost() {
-  store.dispatch(setIsEditing(true))
+  store.dispatch(setPostStatus("draft"))
 }
 /*
 
@@ -91,7 +91,7 @@ export async function createPost(title: string, tags: Tags, content: string) {
     .then(() => {
       store.dispatch(setPostMetadata({ postId, metadata }))
       store.dispatch(setPostShortContent({ postId, shortContent }))
-      store.dispatch(setIsEditing(false))
+      store.dispatch(setPostStatus("published"))
     })
     .catch(error => {
       // TODO: handle error
@@ -115,7 +115,7 @@ export async function updatePost(
       .then(() => {
         store.dispatch(setPostMetadata({ postId, metadata }))
         store.dispatch(setPostShortContent({ postId, shortContent }))
-        store.dispatch(setIsEditing(false))
+        store.dispatch(setPostStatus("published"))
       })
       .catch(error => {
         // TODO: handle error
@@ -124,7 +124,7 @@ export async function updatePost(
     return setPostMetadataOnDB(postId, metadata)
       .then(() => {
         store.dispatch(setPostMetadata({ postId, metadata }))
-        store.dispatch(setIsEditing(false))
+        store.dispatch(setPostStatus("published"))
       })
       .catch(error => {
         // TODO: handle error

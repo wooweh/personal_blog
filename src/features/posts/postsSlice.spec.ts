@@ -2,15 +2,16 @@ import { describe, expect, it } from "vitest"
 import postsReducer, {
   MetadataProps,
   PostProps,
+  PostStatuses,
   PostsSliceState,
   ShortContentProps,
   deletePost,
   deleteTag,
   deleteTagFromPosts,
-  setIsEditing,
   setMetadata,
   setPostMetadata,
   setPostShortContent,
+  setPostStatus,
   setShortContent,
   setTag,
   setTags,
@@ -27,11 +28,11 @@ describe("post slice", () => {
       metadata: {},
       shortContent: {},
     },
-    isEditing: false,
+    postStatus: "draft",
   }
 
   const mockState: PostsSliceState = {
-    isEditing: false,
+    postStatus: "draft",
     posts: {
       tags: {
         mockTag1: "mockTag1",
@@ -60,9 +61,10 @@ describe("post slice", () => {
     )
   })
 
-  it("should handle setIsEditing", () => {
-    const actual = postsReducer(initialState, setIsEditing(true))
-    expect(actual.isEditing).toBe(true)
+  it("should handle setPostStatus", () => {
+    const status: PostStatuses = "published"
+    const actual = postsReducer(initialState, setPostStatus(status))
+    expect(actual.postStatus).toBe(status)
   })
 
   it("should handle setTag", () => {

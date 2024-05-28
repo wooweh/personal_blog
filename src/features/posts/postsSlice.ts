@@ -6,6 +6,7 @@ import { createAppSlice } from "../../app/createAppSlice"
 
 
 */
+export type PostStatuses = "draft" | "published" | "saving" | "deleting"
 export type PostsProps = {
   tags: Tags | {}
   metadata: MetadataProps | {}
@@ -55,12 +56,12 @@ export type SetPostUpdatedProps = SetPostCreatedProps
 
 */
 export interface PostsSliceState {
-  isEditing: boolean
+  postStatus: PostStatuses
   posts: PostsProps
 }
 
 const initialState: PostsSliceState = {
-  isEditing: false,
+  postStatus: "draft",
   posts: {
     tags: {},
     metadata: {},
@@ -72,8 +73,8 @@ export const postsSlice = createAppSlice({
   name: "posts",
   initialState,
   reducers: {
-    setIsEditing: (state, action: PayloadAction<boolean>) => {
-      state.isEditing = action.payload
+    setPostStatus: (state, action: PayloadAction<PostStatuses>) => {
+      state.postStatus = action.payload
     },
     setTag: (state, action: PayloadAction<string>) => {
       const tagName = action.payload
@@ -122,7 +123,7 @@ export const postsSlice = createAppSlice({
 })
 
 export const {
-  setIsEditing,
+  setPostStatus,
   setTag,
   deleteTag,
   setTags,
