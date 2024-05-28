@@ -1,0 +1,41 @@
+/* Core */
+
+.core {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Bar */
+
+.bar {
+  width: 100%;
+  height: var(--module-7);
+  background: var(--background-primary);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--module-4);
+  border-bottom: 1px solid var(--border-secondary);
+  position: fixed;
+  top: 0;
+}
+
+.bread-crumbs-container {
+  width: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: var(--module-4);
+  padding-right: var(--module-4);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
