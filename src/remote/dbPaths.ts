@@ -34,8 +34,11 @@ const postsPath = `${rootPath}/posts`
 const postsPaths = {
   root: postsPath,
   tags: `${postsPath}/tags`,
+  tag: getTagPath,
   metadata: `${postsPath}/metadata`,
   shortContent: `${postsPath}/shortContent`,
+  postMetadata: getPostMetadataPath,
+  postShortContent: getPostShortContentPath,
   postContent: getPostContentPath,
 }
 /*
@@ -43,10 +46,45 @@ const postsPaths = {
 
 
 */
-function getPostContentPath(uuid: string) {
+function getTagPath(tagName: string) {
+  return `${postsPaths.tags}/${tagName}`
+}
+/*
+
+
+
+*/
+function getPostMetadataPath(uuid: string) {
+  const postMetadata = `${postsPaths.metadata}/${uuid}`
   return {
-    content: `${rootPath}/posts/content/${uuid}`,
+    root: postMetadata,
+    tags: `${postMetadata}/tags`,
+    tag: getPostMetadataTagPath,
   }
+}
+/*
+
+
+
+*/
+function getPostMetadataTagPath(tagName: string) {
+  return `${postsPaths.metadata}/tags/${tagName}`
+}
+/*
+
+
+
+*/
+function getPostShortContentPath(uuid: string) {
+  return `${postsPaths.shortContent}/${uuid}`
+}
+/*
+
+
+
+*/
+function getPostContentPath(uuid: string) {
+  return `${postsPaths}/content/${uuid}`
 }
 /*
 
