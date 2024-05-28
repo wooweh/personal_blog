@@ -1,0 +1,70 @@
+/* Define global variables and classes here */
+:root {
+  --module-1: 4px;
+  --module-2: calc(var(--module-1) * 1.618);
+  --module-3: calc(var(--module-2) * 1.618);
+  --module-4: calc(var(--module-3) * 1.618);
+  --module-5: calc(var(--module-4) * 1.618);
+  --module-6: calc(var(--module-5) * 1.618);
+  --module-7: calc(var(--module-6) * 1.618);
+  --module-8: calc(var(--module-7) * 1.618);
+  --module-9: calc(var(--module-8) * 1.618);
+  --color-blue: #0a64bc;
+}
+
+.light-mode {
+  --text-primary: #1b1b1b;
+  --text-secondary: #4e4e4e;
+  --text-active: #858585;
+  --background-primary: #fff;
+  --background-secondary: #f9f9fb;
+  --background-tertiary: #ebeaea;
+}
+
+.dark-mode {
+  --text-primary: #fff;
+  --text-secondary: #cdcdcd;
+  --text-active: #bfbfbfa9;
+  --border-primary: #262626;
+  --border-secondary: hsl(0, 0%, 35%);
+  --border-tertiary: #a6a6a6;
+  --background-primary: #1b1b1b;
+  --background-secondary: #303030;
+  --background-tertiary: #858585;
+  --background-input-hover: #3b3b3b;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-primary);
+  position: relative;
+  font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: var(--text-secondary);
+}
+
+svg {
+  color: var(--text-secondary);
+}
+
+::-webkit-scrollbar {
+  height: 0;
+  display: flex;
+  flex-shrink: 0;
+  width: 5px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightblue;
+}
