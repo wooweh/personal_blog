@@ -1,10 +1,12 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
+import _ from "lodash"
 /*
 
 
 
 */
-export type BlogProps = { name: string; description: string }
+export type BlogProps = { name: string; description: string; tags: TagProps }
+export type TagProps = { [key: string]: string }
 /*
 
 
@@ -19,16 +21,13 @@ export interface BlogSliceState {
 const initialState: BlogSliceState = {
   showInfo: false,
   showFilter: false,
-  blog: { name: "", description: "" },
+  blog: { name: "", description: "", tags: {} },
 }
 
 export const blogSlice = createSlice({
-  name: "home",
+  name: "blog",
   initialState,
   reducers: {
-    setShowInfo: (state, action: PayloadAction<boolean>) => {
-      state.showInfo = action.payload
-    },
     setShowFilter: (state, action: PayloadAction<boolean>) => {
       state.showFilter = action.payload
     },
@@ -37,6 +36,10 @@ export const blogSlice = createSlice({
     },
     setBlogDescription: (state, action: PayloadAction<string>) => {
       state.blog.name = action.payload
+    },
+    setBlogTag: (state, action: PayloadAction<string>) => {
+      const tagName = action.payload
+      _.set(state.blog.tags, tagName, tagName)
     },
     setBlog: (state, action: PayloadAction<BlogProps>) => {
       state.blog = action.payload
@@ -49,7 +52,6 @@ export const blogSlice = createSlice({
 })
 
 export const {
-  setShowInfo,
   setShowFilter,
   setBlogName,
   setBlogDescription,
