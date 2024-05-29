@@ -1,7 +1,7 @@
 import { DataSnapshot } from "firebase/database"
 import { store } from "../../app/store"
-import { setBlog } from "../blog/blogSlice"
-import { setAdmin } from "../admin/adminSlice"
+// import { setBlog } from "../blog/blogSlice"
+// import { setAdmin } from "../admin/adminSlice"
 /*
 
 
@@ -9,7 +9,7 @@ import { setAdmin } from "../admin/adminSlice"
 */
 export function handleBlogDBOnValue(snapshot: DataSnapshot) {
   const blog = snapshot.val()
-  if (!!blog) store.dispatch(setBlog(blog))
+  // if (!!blog) store.dispatch(setBlog(blog))
 }
 /*
 
@@ -18,7 +18,7 @@ export function handleBlogDBOnValue(snapshot: DataSnapshot) {
 */
 export function handleAdminDBOnValue(snapshot: DataSnapshot) {
   const admin = snapshot.val()
-  if (!!admin) store.dispatch(setAdmin(admin))
+  // if (!!admin) store.dispatch(setAdmin(admin))
 }
 /*
 
