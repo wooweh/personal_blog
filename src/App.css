@@ -1,5 +1,7 @@
-/* Define global variables and classes here */
+/* Defines global css variables and classes here */
+
 :root {
+  /* Spacing variables */
   --module-1: 4px;
   --module-2: calc(var(--module-1) * 1.618);
   --module-3: calc(var(--module-2) * 1.618);
@@ -9,7 +11,75 @@
   --module-7: calc(var(--module-6) * 1.618);
   --module-8: calc(var(--module-7) * 1.618);
   --module-9: calc(var(--module-8) * 1.618);
-  --color-blue: #0a64bc;
+  /* Color variables */
+  --color-red: #ff97a0;
+  --color-green: #00d061;
+  --color-blue: #8cb4ff;
+  --color-yellow: #c7b700;
+  /* Font, spacing and line variables */
+  --font-fallback: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-body: Inter, var(--font-fallback);
+  --font-heading: Inter, var(--font-fallback);
+  --font-code: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
+  --base-font-size: 100%;
+  --base-line-height: 1.2;
+  --intermediate-line-height: 1.5;
+  --heading-line-height: var(--base-line-height);
+  --heading-letter-spacing: -0.031rem;
+  --font-content-line-height: 1.75;
+  --font-body-strong-weight: 600;
+  /* Font size variables - mobile */
+  --type-base-font-size-rem: 1rem;
+  --type-smaller-font-size: 0.833rem;
+  --type-tiny-font-size: 0.694rem;
+  --type-heading-h1-font-size: 1.802rem;
+  --type-heading-h2-font-size: 1.602rem;
+  --type-heading-h3-font-size: 1.424rem;
+  --type-heading-h4-font-size: 1.266rem;
+  --type-heading-h5-font-size: 1.2rem;
+  --type-heading-h1: 600 var(--type-heading-h1-font-size) /
+    var(--heading-line-height) var(--font-heading);
+  --type-heading-h2: 500 var(--type-heading-h2-font-size) /
+    var(--heading-line-height) var(--font-heading);
+  --type-heading-h3: 300 var(--type-heading-h3-font-size) /
+    var(--heading-line-height) var(--font-heading);
+  --type-heading-h4: 400 var(--type-heading-h4-font-size) /
+    var(--heading-line-height) var(--font-heading);
+  --type-heading-h5: 400 var(--type-heading-h5-font-size) /
+    var(--heading-line-height) var(--font-heading);
+  --type-heading-h6: 400 var(--type-base-font-size-rem) /
+    var(--heading-line-height) var(--font-heading);
+  --type-article-p: 400 var(--type-base-font-size-rem) /
+    var(--font-content-line-height) var(--font-body);
+  /* Main element height variables*/
+  --top-navigation-height: var(--module-4);
+  /* Main element z-index variables*/
+  --z-index-modal-content: 301;
+  --z-index-modal-overlay: 300;
+  --z-index-sidebar: 200;
+  --z-index-nav-menu: 100;
+  /* Miscellaneous variables*/
+  --icon-size: 1rem;
+}
+
+@media screen and (min-width: 760px) {
+  :root {
+    /* Font size variables - desktop */
+    --type-heading-h1-font-size: 2.488rem;
+    --type-heading-h2-font-size: 2.074rem;
+    --type-heading-h3-font-size: 1.728rem;
+    --type-heading-h4-font-size: 1.44rem;
+    --type-heading-h1: 600 var(--type-heading-h1-font-size) /
+      var(--heading-line-height) var(--font-heading);
+    --type-heading-h2: 500 var(--type-heading-h2-font-size) /
+      var(--heading-line-height) var(--font-heading);
+    --type-heading-h3: 300 var(--type-heading-h3-font-size) /
+      var(--heading-line-height) var(--font-heading);
+    --type-heading-h4: 400 var(--type-heading-h4-font-size) /
+      var(--heading-line-height) var(--font-heading);
+  }
 }
 
 .light-mode {
@@ -25,13 +95,9 @@
   --text-primary: #fff;
   --text-secondary: #cdcdcd;
   --text-active: #bfbfbfa9;
-  --border-primary: #262626;
-  --border-secondary: hsl(0, 0%, 35%);
-  --border-tertiary: #a6a6a6;
   --background-primary: #1b1b1b;
   --background-secondary: #303030;
   --background-tertiary: #858585;
-  --background-input-hover: #3b3b3b;
 }
 
 html {
@@ -46,15 +112,41 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background-primary);
-  position: relative;
-  font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background: var(--background-primary);
   color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--base-font-size);
+  position: relative;
 }
 
 svg {
   color: var(--text-secondary);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+h1 {
+  font: var(--type-heading-h1);
+}
+
+h2 {
+  font: var(--type-heading-h2);
+}
+
+h3 {
+  font: var(--type-heading-h3);
+}
+
+h4 {
+  font: var(--type-heading-h4);
+}
+
+h5 {
+  font: var(--type-heading-h5);
 }
 
 ::-webkit-scrollbar {
