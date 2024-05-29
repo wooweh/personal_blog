@@ -11,6 +11,8 @@
   --module-7: calc(var(--module-6) * 1.618);
   --module-8: calc(var(--module-7) * 1.618);
   --module-9: calc(var(--module-8) * 1.618);
+  --module-10: calc(var(--module-9) * 1.618);
+  --module-11: calc(var(--module-10) * 1.618);
   /* Color variables */
   --color-red: #ff97a0;
   --color-green: #00d061;
@@ -56,10 +58,11 @@
   /* Main element height variables*/
   --top-navigation-height: var(--module-4);
   /* Main element z-index variables*/
+  --z-index-modal-backdrop: 300;
   --z-index-modal-content: 301;
-  --z-index-modal-overlay: 300;
   --z-index-sidebar: 200;
-  --z-index-nav-menu: 100;
+  --z-index-nav-backdrop: 100;
+  --z-index-nav-menu: 101;
   /* Miscellaneous variables*/
   --icon-size: 1rem;
 }
