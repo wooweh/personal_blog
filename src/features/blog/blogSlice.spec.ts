@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest"
 import blogReducer, {
   BlogProps,
   BlogSliceState,
+  deleteBlogTag,
   setBlog,
-  setBlogDescription,
-  setBlogName,
+  setBlogTag,
 } from "./blogSlice"
 /*
 
@@ -14,33 +14,33 @@ import blogReducer, {
 describe("core slice", () => {
   const initialState: BlogSliceState = {
     showFilter: false,
-    blog: { name: "", description: "", tags: {} },
+    blog: { tags: {} },
   }
 
   it("should handle initial state", () => {
     expect(blogReducer(undefined, { type: "unknown" })).toStrictEqual({
       showFilter: false,
-      blog: { name: "", description: "" },
+      blog: { tags: {} },
     })
   })
 
-  it("should handle setBlogName", () => {
-    const name = "myBlog"
-    const actual = blogReducer(initialState, setBlogName(name))
-    expect(actual.blog.name).toEqual(name)
+  it("should handle setBlogTag", () => {
+    const tagName = "myBlog"
+    const actual = blogReducer(initialState, setBlogTag(tagName))
+    expect(actual.blog.tags.tagName).toEqual(tagName)
   })
 
-  it("should handle setBlogDescription", () => {
-    const description = "this is my blog"
-    const actual = blogReducer(initialState, setBlogDescription(description))
-    expect(actual.blog.description).toEqual(description)
+  it("should handle deleteBlogTag", () => {
+    const tagName = "tagName"
+    const actual = blogReducer(initialState, deleteBlogTag(tagName))
+    expect(actual.blog.tags.tagName).toBeUndefined()
   })
 
   it("should handle setBlog", () => {
     const blog: BlogProps = {
-      name: "myBlog",
-      description: "this is my blog",
-      tags: {},
+      tags: {
+        tagName: "tagName",
+      },
     }
     const actual = blogReducer(initialState, setBlog(blog))
     expect(actual.blog).toEqual(blog)

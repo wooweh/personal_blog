@@ -5,7 +5,7 @@ import _ from "lodash"
 
 
 */
-export type BlogProps = { name: string; description: string; tags: TagProps }
+export type BlogProps = { tags: TagProps }
 export type TagProps = { [key: string]: string }
 /*
 
@@ -15,11 +15,23 @@ export type TagProps = { [key: string]: string }
 export interface BlogSliceState {
   showFilter: boolean
   blog: BlogProps
+  filters: {
+    isNewest: boolean
+    from: string
+    to: string
+    tags: TagProps
+  }
 }
 
 const initialState: BlogSliceState = {
   showFilter: false,
-  blog: { name: "", description: "", tags: {} },
+  blog: { tags: {} },
+  filters: {
+    isNewest: true,
+    from: "",
+    to: "",
+    tags: {},
+  },
 }
 
 export const blogSlice = createSlice({
@@ -29,15 +41,13 @@ export const blogSlice = createSlice({
     setShowFilter: (state, action: PayloadAction<boolean>) => {
       state.showFilter = action.payload
     },
-    setBlogName: (state, action: PayloadAction<string>) => {
-      state.blog.name = action.payload
-    },
-    setBlogDescription: (state, action: PayloadAction<string>) => {
-      state.blog.name = action.payload
-    },
     setBlogTag: (state, action: PayloadAction<string>) => {
       const tagName = action.payload
       _.set(state.blog.tags, tagName, tagName)
+    },
+    deleteBlogTag: (state, action: PayloadAction<string>) => {
+      const tagName = action.payload
+      _.unset(state.blog.tags, tagName)
     },
     setBlog: (state, action: PayloadAction<BlogProps>) => {
       state.blog = action.payload
@@ -48,12 +58,7 @@ export const blogSlice = createSlice({
   },
 })
 
-export const {
-  setShowFilter,
-  setBlogName,
-  setBlogDescription,
-  setBlog,
-  resetBlog,
-} = blogSlice.actions
+export const { setShowFilter, setBlog, setBlogTag, deleteBlogTag, resetBlog } =
+  blogSlice.actions
 
 export default blogSlice.reducer

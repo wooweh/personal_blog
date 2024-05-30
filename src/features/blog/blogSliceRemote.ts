@@ -16,9 +16,13 @@ export async function getBlogFromDB() {
 
 
 */
-export async function setBlogNameOnDB(name: string) {
-  return set(ref(dbReal, dbPaths.blog.name), name)
-}
+export async function setBlogTagOnDB(tag: string) {}
+/*
+
+
+
+*/
+export async function deleteBlogTagOnDB(tag: string) {}
 /*
 
 
