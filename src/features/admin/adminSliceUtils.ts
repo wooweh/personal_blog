@@ -5,14 +5,9 @@ import {
   AdminProps,
   setAdmin,
   setAdminEmail,
-  setAdminName,
   setAuthStatus,
 } from "./adminSlice"
-import {
-  getAdminFromDB,
-  setAdminEmailOnDB,
-  setAdminNameOnDB,
-} from "./adminSliceRemote"
+import { getAdminFromDB, setAdminEmailOnDB } from "./adminSliceRemote"
 /*
 
 
@@ -47,18 +42,6 @@ export function signAdminOut() {
     })
     .catch(error => {
       store.dispatch(setAuthStatus("signedIn"))
-      // TODO: handle error
-    })
-}
-/*
-
-
-
-*/
-export function updateAdminName(name: string) {
-  setAdminNameOnDB(name)
-    .then(() => store.dispatch(setAdminName(name)))
-    .catch(error => {
       // TODO: handle error
     })
 }

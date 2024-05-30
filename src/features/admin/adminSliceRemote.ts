@@ -16,14 +16,6 @@ export async function getAdminFromDB() {
 
 
 */
-export async function setAdminNameOnDB(name: string) {
-  return set(ref(dbReal, dbPaths.admin.name), name)
-}
-/*
-
-
-
-*/
 export async function setAdminEmailOnDB(email: string) {
   return set(ref(dbReal, dbPaths.admin.email), email)
 }

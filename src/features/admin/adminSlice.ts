@@ -5,7 +5,7 @@ import { createAppSlice } from "../../app/createAppSlice"
 
 
 */
-export type AdminProps = { name: string; email: string }
+export type AdminProps = { email: string }
 export type AuthStatuses = "signedOut" | "signingIn" | "signedIn"
 /*
 
@@ -19,7 +19,7 @@ export interface AdminSliceState {
 
 const initialState: AdminSliceState = {
   authStatus: "signedOut",
-  admin: { name: "", email: "" },
+  admin: { email: "" },
 }
 export const adminSlice = createAppSlice({
   name: "admin",
@@ -27,9 +27,6 @@ export const adminSlice = createAppSlice({
   reducers: {
     setAuthStatus: (state, action: PayloadAction<AuthStatuses>) => {
       state.authStatus = action.payload
-    },
-    setAdminName: (state, action: PayloadAction<string>) => {
-      state.admin.name = action.payload
     },
     setAdminEmail: (state, action: PayloadAction<string>) => {
       state.admin.email = action.payload
@@ -41,17 +38,9 @@ export const adminSlice = createAppSlice({
       state.admin = initialState.admin
     },
   },
-  selectors: {},
 })
 
-export const {
-  setAdmin,
-  setAuthStatus,
-  setAdminName,
-  setAdminEmail,
-  resetAdmin,
-} = adminSlice.actions
-
-export const {} = adminSlice.selectors
+export const { setAdmin, setAuthStatus, setAdminEmail, resetAdmin } =
+  adminSlice.actions
 
 export default adminSlice.reducer

@@ -32,7 +32,7 @@ function InputPanel() {
 
   return (
     <form className={styles["auth-input-panel"]}>
-      <h1>Admin Login</h1>
+      <h1>Login</h1>
       <Input value={email} onChange={handleEmailChange} />
       <Input value={password} onChange={handlePasswordChange} isPassword />
       <LoginButton />

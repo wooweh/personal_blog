@@ -4,7 +4,6 @@ import adminReducer, {
   resetAdmin,
   setAdmin,
   setAdminEmail,
-  setAdminName,
   setAuthStatus,
 } from "./adminSlice"
 /*
@@ -15,13 +14,13 @@ import adminReducer, {
 describe("admin slice", () => {
   const initialState: AdminSliceState = {
     authStatus: "signedOut",
-    admin: { name: "", email: "" },
+    admin: { email: "" },
   }
 
   it("should handle initial state", () => {
     expect(adminReducer(undefined, { type: "unknown" })).toStrictEqual({
       authStatus: "signedOut",
-      admin: { name: "", email: "" },
+      admin: { email: "" },
     })
   })
 
@@ -29,12 +28,6 @@ describe("admin slice", () => {
     const status = "signedIn"
     const actual = adminReducer(initialState, setAuthStatus(status))
     expect(actual.authStatus).toEqual(status)
-  })
-
-  it("should handle setAdminName", () => {
-    const name = "test"
-    const actual = adminReducer(initialState, setAdminName(name))
-    expect(actual.admin.name).toEqual(name)
   })
 
   it("should handle setAdminEmail", () => {
@@ -45,7 +38,6 @@ describe("admin slice", () => {
 
   it("should handle setAdmin", () => {
     const mockAdmin: AdminProps = {
-      name: "test",
       email: "test@test.mail",
     }
     const actual = adminReducer(initialState, setAdmin(mockAdmin))
