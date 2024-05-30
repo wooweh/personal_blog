@@ -22,12 +22,26 @@ const descriptionPath = `${rootPath}/description`
 
 */
 const checkInsPath = `${rootPath}/checkIns`
+const checkInsPaths = {
+  root: checkInsPath,
+  checkIn: getCheckInPath,
+}
+function getCheckInPath(date: string) {
+  return `${checkInsPath}/${date}`
+}
 /*
 
 
 
 */
 const tagsPath = `${rootPath}/tags`
+const tagsPaths = {
+  root: tagsPath,
+  tag: getTagPath,
+}
+function getTagPath(name: string) {
+  return `${tagsPath}/${name}`
+}
 /*
 
 
@@ -44,31 +58,36 @@ const adminPaths = {
 
 */
 const metadataPath = `${rootPath}/metadata`
-/*
-
-
-
-*/
-const shortContentPath = `${rootPath}/shortContent`
-/*
-
-
-
-*/
-const fullContentPath = `${rootPath}/fullContent`
-const fullContentPaths = {
-  root: fullContentPath,
-  post: getPostFullContentPath,
+const metadataPaths = {
+  root: metadataPath,
+  post: getPostMetadataPath,
+}
+function getPostMetadataPath(uuid: string) {
+  return `${metadataPath}/${uuid}`
 }
 /*
 
 
 
 */
+const shortContentPaths = {
+  root: `${rootPath}/shortContent`,
+  post: getPostShortContentPath,
+}
+function getPostShortContentPath(uuid: string) {
+  return `${rootPath}/shortContent/${uuid}`
+}
+/*
+
+
+
+*/
+const fullContentPaths = {
+  root: `${rootPath}/fullContent`,
+  post: getPostFullContentPath,
+}
 function getPostFullContentPath(uuid: string) {
-  return {
-    content: `${rootPath}/fullContent/${uuid}`,
-  }
+  return `${rootPath}/fullContent/${uuid}`
 }
 /*
 
@@ -78,9 +97,10 @@ function getPostFullContentPath(uuid: string) {
 export const dbPaths = {
   name: namePath,
   description: descriptionPath,
-  checkIns: checkInsPath,
-  tags: tagsPath,
-  metadata: metadataPath,
-  shortContent: shortContentPath,
+  checkIns: checkInsPaths,
+  tags: tagsPaths,
+  admin: adminPaths,
+  metadata: metadataPaths,
+  shortContent: shortContentPaths,
   fullContent: fullContentPaths,
 }
