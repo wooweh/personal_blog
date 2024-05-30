@@ -9,10 +9,38 @@ const rootPath = import.meta.env.VITE_DB_ROOT_PATH
 
 
 */
-const blogPath = `${rootPath}/blog`
-const blogPaths = {
-  root: blogPath,
-  name: `${blogPath}/name`,
+const namePath = `${rootPath}/name`
+/*
+
+
+
+*/
+const descriptionPath = `${rootPath}/description`
+/*
+
+
+
+*/
+const checkInsPath = `${rootPath}/checkIns`
+const checkInsPaths = {
+  root: checkInsPath,
+  checkIn: getCheckInPath,
+}
+function getCheckInPath(date: string) {
+  return `${checkInsPath}/${date}`
+}
+/*
+
+
+
+*/
+const tagsPath = `${rootPath}/tags`
+const tagsPaths = {
+  root: tagsPath,
+  tag: getTagPath,
+}
+function getTagPath(name: string) {
+  return `${tagsPath}/${name}`
 }
 /*
 
@@ -22,7 +50,6 @@ const blogPaths = {
 const adminPath = `${rootPath}/admin`
 const adminPaths = {
   root: adminPath,
-  name: `${adminPath}/name`,
   email: `${adminPath}/email`,
 }
 /*
@@ -30,61 +57,37 @@ const adminPaths = {
 
 
 */
-const postsPath = `${rootPath}/posts`
-const postsPaths = {
-  root: postsPath,
-  tags: `${postsPath}/tags`,
-  tag: getTagPath,
-  metadata: `${postsPath}/metadata`,
-  shortContent: `${postsPath}/shortContent`,
-  postMetadata: getPostMetadataPath,
-  postShortContent: getPostShortContentPath,
-  postContent: getPostContentPath,
+const metadataPath = `${rootPath}/metadata`
+const metadataPaths = {
+  root: metadataPath,
+  post: getPostMetadataPath,
 }
-/*
-
-
-
-*/
-function getTagPath(tagName: string) {
-  return `${postsPaths.tags}/${tagName}`
-}
-/*
-
-
-
-*/
 function getPostMetadataPath(uuid: string) {
-  const postMetadata = `${postsPaths.metadata}/${uuid}`
-  return {
-    root: postMetadata,
-    tags: `${postMetadata}/tags`,
-    tag: getPostMetadataTagPath,
-  }
+  return `${metadataPath}/${uuid}`
 }
 /*
 
 
 
 */
-function getPostMetadataTagPath(tagName: string) {
-  return `${postsPaths.metadata}/tags/${tagName}`
+const shortContentPaths = {
+  root: `${rootPath}/shortContent`,
+  post: getPostShortContentPath,
 }
-/*
-
-
-
-*/
 function getPostShortContentPath(uuid: string) {
-  return `${postsPaths.shortContent}/${uuid}`
+  return `${rootPath}/shortContent/${uuid}`
 }
 /*
 
 
 
 */
-function getPostContentPath(uuid: string) {
-  return `${postsPaths}/content/${uuid}`
+const fullContentPaths = {
+  root: `${rootPath}/fullContent`,
+  post: getPostFullContentPath,
+}
+function getPostFullContentPath(uuid: string) {
+  return `${rootPath}/fullContent/${uuid}`
 }
 /*
 
@@ -92,7 +95,12 @@ function getPostContentPath(uuid: string) {
 
 */
 export const dbPaths = {
-  blog: blogPaths,
+  name: namePath,
+  description: descriptionPath,
+  checkIns: checkInsPaths,
+  tags: tagsPaths,
   admin: adminPaths,
-  posts: postsPaths,
+  metadata: metadataPaths,
+  shortContent: shortContentPaths,
+  fullContent: fullContentPaths,
 }

@@ -103,6 +103,15 @@
   --background-tertiary: #858585;
 }
 
+.calm-mode {
+  --text-primary: #fff;
+  --text-secondary: #cdcdcd;
+  --text-active: #bfbfbfa9;
+  --background-primary: #070A33;
+  --background-secondary: #131852;
+  --background-tertiary: #2B2F78;
+}
+
 html {
   box-sizing: border-box;
 }
