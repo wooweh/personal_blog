@@ -9,11 +9,25 @@ const rootPath = import.meta.env.VITE_DB_ROOT_PATH
 
 
 */
-const blogPath = `${rootPath}/blog`
-const blogPaths = {
-  root: blogPath,
-  name: `${blogPath}/name`,
-}
+const namePath = `${rootPath}/name`
+/*
+
+
+
+*/
+const descriptionPath = `${rootPath}/description`
+/*
+
+
+
+*/
+const checkInsPath = `${rootPath}/checkIns`
+/*
+
+
+
+*/
+const tagsPath = `${rootPath}/tags`
 /*
 
 
@@ -22,7 +36,6 @@ const blogPaths = {
 const adminPath = `${rootPath}/admin`
 const adminPaths = {
   root: adminPath,
-  name: `${adminPath}/name`,
   email: `${adminPath}/email`,
 }
 /*
@@ -30,22 +43,31 @@ const adminPaths = {
 
 
 */
-const postsPath = `${rootPath}/posts`
-const postsPaths = {
-  root: postsPath,
-  tags: `${postsPath}/tags`,
-  metadata: `${postsPath}/metadata`,
-  shortContent: `${postsPath}/shortContent`,
-  postContent: getPostContentPath,
+const metadataPath = `${rootPath}/metadata`
+/*
+
+
+
+*/
+const shortContentPath = `${rootPath}/shortContent`
+/*
+
+
+
+*/
+const fullContentPath = `${rootPath}/fullContent`
+const fullContentPaths = {
+  root: fullContentPath,
+  post: getPostFullContentPath,
 }
 /*
 
 
 
 */
-function getPostContentPath(uuid: string) {
+function getPostFullContentPath(uuid: string) {
   return {
-    content: `${rootPath}/posts/content/${uuid}`,
+    content: `${rootPath}/fullContent/${uuid}`,
   }
 }
 /*
@@ -54,7 +76,11 @@ function getPostContentPath(uuid: string) {
 
 */
 export const dbPaths = {
-  blog: blogPaths,
-  admin: adminPaths,
-  posts: postsPaths,
+  name: namePath,
+  description: descriptionPath,
+  checkIns: checkInsPath,
+  tags: tagsPath,
+  metadata: metadataPath,
+  shortContent: shortContentPath,
+  fullContent: fullContentPaths,
 }
