@@ -5,7 +5,6 @@ import blogReducer, {
   setBlog,
   setBlogDescription,
   setBlogName,
-  setShowFilter,
 } from "./blogSlice"
 /*
 
@@ -15,22 +14,14 @@ import blogReducer, {
 describe("core slice", () => {
   const initialState: BlogSliceState = {
     showFilter: false,
-    showInfo: false,
     blog: { name: "", description: "", tags: {} },
   }
 
   it("should handle initial state", () => {
     expect(blogReducer(undefined, { type: "unknown" })).toStrictEqual({
       showFilter: false,
-      showInfo: false,
       blog: { name: "", description: "" },
     })
-  })
-
-  it("should handle setShowFilter", () => {
-    const status = true
-    const actual = blogReducer(initialState, setShowFilter(status))
-    expect(actual.showFilter).toEqual(status)
   })
 
   it("should handle setBlogName", () => {

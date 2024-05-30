@@ -13,13 +13,11 @@ export type TagProps = { [key: string]: string }
 
 */
 export interface BlogSliceState {
-  showInfo: boolean
   showFilter: boolean
   blog: BlogProps
 }
 
 const initialState: BlogSliceState = {
-  showInfo: false,
   showFilter: false,
   blog: { name: "", description: "", tags: {} },
 }
@@ -48,7 +46,6 @@ export const blogSlice = createSlice({
       state.blog = initialState.blog
     },
   },
-  selectors: {},
 })
 
 export const {
@@ -58,7 +55,5 @@ export const {
   setBlog,
   resetBlog,
 } = blogSlice.actions
-
-export const {} = blogSlice.selectors
 
 export default blogSlice.reducer
