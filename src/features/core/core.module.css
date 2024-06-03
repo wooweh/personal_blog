@@ -5,13 +5,14 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  padding-top: var(--top-navigation-height);
 }
 
 /* Bar */
 
 .bar {
   width: 100%;
-  height: var(--module-7);
+  height: var(--top-navigation-height);
   background: var(--background-primary);
   display: flex;
   flex-direction: row;
