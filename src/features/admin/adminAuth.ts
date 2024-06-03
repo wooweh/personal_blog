@@ -27,21 +27,3 @@ export async function signOut() {
 
 
 */
-export async function updateEmailOnAuth(newEmail: string, password: string) {
-  // TODO: Update email on auth
-}
-/*
-
-
-
-*/
-export async function reauthenticate(user: User, password: string) {
-  const email = user.email as string
-  const credentials = EmailAuthProvider.credential(email, password)
-  return reauthenticateWithCredential(user, credentials)
-}
-/*
-
-
-
-*/

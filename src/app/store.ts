@@ -11,9 +11,10 @@ import {
   persistStore,
 } from "redux-persist"
 import { coreSlice } from "../features/core/coreSlice"
+import { adminSlice } from "../features/admin/adminSlice"
 import storageSession from "redux-persist/lib/storage/session"
 
-const rootReducer = combineSlices(coreSlice)
+const rootReducer = combineSlices(coreSlice, adminSlice)
 
 export type RootState = ReturnType<typeof rootReducer>
 

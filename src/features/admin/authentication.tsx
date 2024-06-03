@@ -1,14 +1,26 @@
 import { useState } from "react"
 import styles from "./admin.module.css"
+import { signAdminIn } from "./adminSliceUtils"
+import MoonLoader from "react-spinners/MoonLoader"
+import { useAppSelector } from "../../app/hooks"
+import { selectIsSignedIn, selectIsSigningIn } from "./adminSliceSelectors"
+import { useNavigate } from "react-router-dom"
 /*
 
 
 
 */
 export function Authentication() {
+  const isSigningIn = useAppSelector(selectIsSigningIn)
+  const isSignedIn = useAppSelector(selectIsSignedIn)
+  const navigate = useNavigate()
+
+  if (isSignedIn) navigate("/")
+
   return (
     <div id="authentication" className={styles["auth-container"]}>
-      <InputPanel />
+      <InputPanel isHidden={isSigningIn} />
+      <AuthLoader isLoading={isSigningIn} />
     </div>
   )
 }
@@ -17,7 +29,7 @@ export function Authentication() {
 
 
 */
-function InputPanel() {
+function InputPanel({ isHidden }: { isHidden: boolean }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -30,13 +42,41 @@ function InputPanel() {
     setPassword(event.target.value)
   }
 
+  function handleLoginClick() {
+    signAdminIn(email, password)
+  }
+
+  if (isHidden) {
+    return null
+  }
+
   return (
     <form className={styles["auth-input-panel"]}>
-      <h1>Login</h1>
       <Input value={email} onChange={handleEmailChange} />
       <Input value={password} onChange={handlePasswordChange} isPassword />
-      <LoginButton />
+      <LoginButton onClick={handleLoginClick} />
     </form>
+  )
+}
+/*
+
+
+
+*/
+type AuthLoaderProps = {
+  isLoading: boolean
+}
+function AuthLoader({ isLoading }: AuthLoaderProps) {
+  return (
+    <div>
+      <MoonLoader
+        color={"var(--background-secondary)"}
+        loading={isLoading}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    </div>
   )
 }
 /*
@@ -65,8 +105,12 @@ function Input(props: InputProps) {
 
 
 */
-function LoginButton() {
-  return <button className={styles["login-button"]}>Login</button>
+function LoginButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button className={styles["login-button"]} onClick={onClick}>
+      Login
+    </button>
+  )
 }
 /*
 

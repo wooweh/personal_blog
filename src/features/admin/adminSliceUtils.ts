@@ -1,13 +1,7 @@
 import { store } from "../../app/store"
 import { initSystemBoot, resetSystem } from "../core/coreSliceUtils"
-import { signIn, signOut, updateEmailOnAuth } from "./adminAuth"
-import {
-  AdminProps,
-  setAdmin,
-  setAdminEmail,
-  setAuthStatus,
-} from "./adminSlice"
-import { getAdminFromDB, setAdminEmailOnDB } from "./adminSliceRemote"
+import { signIn, signOut } from "./adminAuth"
+import { setAuthStatus } from "./adminSlice"
 /*
 
 
@@ -18,10 +12,6 @@ export function signAdminIn(email: string, password: string) {
   signIn(email, password)
     .then(() => {
       store.dispatch(setAuthStatus("signedIn"))
-      return getAdminFromDB()
-    })
-    .then((admin: AdminProps) => {
-      store.dispatch(setAdmin(admin))
       initSystemBoot()
     })
     .catch(error => {
@@ -42,19 +32,6 @@ export function signAdminOut() {
     })
     .catch(error => {
       store.dispatch(setAuthStatus("signedIn"))
-      // TODO: handle error
-    })
-}
-/*
-
-
-
-*/
-export function updateAdminEmail(email: string, password: string) {
-  updateEmailOnAuth(email, password)
-    .then(() => setAdminEmailOnDB(email))
-    .then(() => store.dispatch(setAdminEmail(email)))
-    .catch(error => {
       // TODO: handle error
     })
 }

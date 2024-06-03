@@ -1,28 +1,23 @@
-import MuiButton from "@mui/material/Button"
-import MuiMenu from "@mui/material/Menu"
-import MuiMenuItem from "@mui/material/MenuItem"
-import styles from "./core.module.css"
-import MenuIcon from "@mui/icons-material/MenuRounded"
-import ThemeIcon from "@mui/icons-material/ContrastRounded"
-import ProfileIcon from "@mui/icons-material/PersonRounded"
 import BlogIcon from "@mui/icons-material/ArticleRounded"
 import DashboardIcon from "@mui/icons-material/DashboardRounded"
-import LogoutIcon from "@mui/icons-material/LogoutRounded"
-import ViewListIcon from "@mui/icons-material/ViewList"
-import ViewModuleIcon from "@mui/icons-material/ViewModule"
-import DarkModeIcon from "@mui/icons-material/ModeNightRounded"
 import LightModeIcon from "@mui/icons-material/LightModeRounded"
+import LogoutIcon from "@mui/icons-material/LogoutRounded"
+import MenuIcon from "@mui/icons-material/MenuRounded"
+import DarkModeIcon from "@mui/icons-material/ModeNightRounded"
 import CalmModeIcon from "@mui/icons-material/PanoramaFishEyeRounded"
-import ViewQuiltIcon from "@mui/icons-material/ViewQuilt"
+import ProfileIcon from "@mui/icons-material/PersonRounded"
+import MuiMenu from "@mui/material/Menu"
+import MuiMenuItem from "@mui/material/MenuItem"
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
-import _ from "lodash"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useAppSelector } from "../../app/hooks"
+import { signAdminOut } from "../admin/adminSliceUtils"
+import styles from "./core.module.css"
+import { Themes } from "./coreSlice"
 import { selectTheme } from "./coreSliceSelectors"
 import { updateTheme } from "./coreSliceUtils"
-import { Themes } from "./coreSlice"
-import { useNavigate } from "react-router-dom"
 /*
 
 
@@ -162,14 +157,9 @@ function MenuItems() {
       onClick: () => navigate("/dashboard"),
     },
     {
-      icon: <ProfileIcon />,
-      label: "Profile",
-      onClick: () => navigate("/profile"),
-    },
-    {
       icon: <LogoutIcon />,
       label: "Logout",
-      onClick: () => {},
+      onClick: signAdminOut,
     },
   ]
   return (
