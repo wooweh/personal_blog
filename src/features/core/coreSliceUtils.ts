@@ -2,7 +2,7 @@ import { store } from "../../app/store"
 // import { resetAdmin, setAdmin } from "../admin/adminSlice"
 // import { BlogProps, resetBlog, setBlog } from "../blog/blogSlice"
 // import { getBlogFromDB } from "../blog/blogSliceRemote"
-import { setShowMenu, setSystemStatus } from "./coreSlice"
+import { Themes, setShowMenu, setSystemStatus, setTheme } from "./coreSlice"
 
 /*
 
@@ -40,16 +40,8 @@ import { setShowMenu, setSystemStatus } from "./coreSlice"
   
   
 */
-export function openMenu() {
-  store.dispatch(setShowMenu(true))
-}
-/*
-  
-  
-  
-*/
-export function closeMenu() {
-  store.dispatch(setShowMenu(false))
+export function updateTheme(theme: Themes) {
+  store.dispatch(setTheme(theme))
 }
 /*
   

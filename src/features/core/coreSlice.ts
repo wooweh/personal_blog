@@ -6,6 +6,7 @@ import { RootState } from "../../app/store"
 
 */
 export type SystemStatuses = "booted" | "notBooted" | "booting"
+export type Themes = "light" | "dark" | "calm"
 /*
 
 
@@ -14,11 +15,13 @@ export type SystemStatuses = "booted" | "notBooted" | "booting"
 export interface CoreSliceState {
   systemStatus: SystemStatuses
   showMenu: boolean
+  theme: Themes
 }
 
 const initialState: CoreSliceState = {
   systemStatus: "notBooted",
   showMenu: false,
+  theme: "dark",
 }
 export const coreSlice = createSlice({
   name: "core",
@@ -30,10 +33,13 @@ export const coreSlice = createSlice({
     setShowMenu: (state, action: PayloadAction<boolean>) => {
       state.showMenu = action.payload
     },
+    setTheme: (state, action: PayloadAction<Themes>) => {
+      state.theme = action.payload
+    },
   },
 })
 
-export const { setSystemStatus, setShowMenu } = coreSlice.actions
+export const { setSystemStatus, setShowMenu, setTheme } = coreSlice.actions
 
 export const coreSelector = (state: RootState) => state.core
 

@@ -27,11 +27,11 @@ export function DBListeners() {
 function BlogDBListener() {
   const isSafeToSync = true
   useEffect(() => {
-    const blogDBRef = ref(dbReal, dbPaths.blog.root)
-    if (isSafeToSync) {
-      onValue(blogDBRef, handleBlogDBOnValue)
-    }
-    return () => off(blogDBRef)
+    // const blogDBRef = ref(dbReal, dbPaths)
+    // if (isSafeToSync) {
+    //   onValue(blogDBRef, handleBlogDBOnValue)
+    // }
+    // return () => off(blogDBRef)
   }, [isSafeToSync])
   return <></>
 }
@@ -43,11 +43,11 @@ function BlogDBListener() {
 function AdminDBListener() {
   const isSafeToSync = true
   useEffect(() => {
-    const adminDBRef = ref(dbReal, dbPaths.admin.root)
-    if (isSafeToSync) {
-      onValue(adminDBRef, handleAdminDBOnValue)
-    }
-    return () => off(adminDBRef)
+    // const adminDBRef = ref(dbReal, dbPaths)
+    // if (isSafeToSync) {
+    //   onValue(adminDBRef, handleAdminDBOnValue)
+    // }
+    // return () => off(adminDBRef)
   }, [isSafeToSync])
   return <></>
 }
@@ -60,27 +60,27 @@ function PostsDBListener() {
   const isSafeToSync = true
 
   useEffect(() => {
-    const postsTagsDBRef = ref(dbReal, dbPaths.posts.tags)
-    if (isSafeToSync) {
-      // TODO: Attach onChildChanged and onChildRemoved listeners for posts tags
-    }
-    return () => off(postsTagsDBRef)
+    // const postsTagsDBRef = ref(dbReal, dbPaths)
+    // if (isSafeToSync) {
+    //   // TODO: Attach onChildChanged and onChildRemoved listeners for posts tags
+    // }
+    // return () => off(postsTagsDBRef)
   }, [isSafeToSync])
 
   useEffect(() => {
-    const postsMetadataDBRef = ref(dbReal, dbPaths.posts.metadata)
-    if (isSafeToSync) {
-      // TODO: Attach onChildChanged and onChildRemoved listeners for posts metadata
-    }
-    return () => off(postsMetadataDBRef)
+    // const postsMetadataDBRef = ref(dbReal, dbPaths)
+    // if (isSafeToSync) {
+    //   // TODO: Attach onChildChanged and onChildRemoved listeners for posts metadata
+    // }
+    // return () => off(postsMetadataDBRef)
   }, [isSafeToSync])
 
   useEffect(() => {
-    const postsShortContentDBRef = ref(dbReal, dbPaths.posts.shortContent)
-    if (isSafeToSync) {
-      // TODO: Attach onChildChanged and onChildRemoved listeners for posts short content
-    }
-    return () => off(postsShortContentDBRef)
+    // const postsShortContentDBRef = ref(dbReal, dbPaths)
+    // if (isSafeToSync) {
+    //   // TODO: Attach onChildChanged and onChildRemoved listeners for posts short content
+    // }
+    // return () => off(postsShortContentDBRef)
   }, [isSafeToSync])
 
   return <></>

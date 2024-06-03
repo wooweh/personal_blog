@@ -14,3 +14,9 @@ export const selectShowMenu = createSelector(
 
 
 */
+export const selectTheme = createSelector([coreSelector], core => core.theme)
+/*
+
+
+
+*/
