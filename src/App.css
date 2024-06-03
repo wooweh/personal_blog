@@ -56,7 +56,7 @@
   --type-article-p: 400 var(--type-base-font-size-rem) /
     var(--font-content-line-height) var(--font-body);
   /* Main element height variables*/
-  --top-navigation-height: var(--module-4);
+  --top-navigation-height: var(--module-7);
   /* Main element z-index variables*/
   --z-index-modal-backdrop: 300;
   --z-index-modal-content: 301;

@@ -7,7 +7,7 @@ import styles from "./admin.module.css"
 */
 export function Authentication() {
   return (
-    <div id={"authentication"} className={styles["auth-container"]}>
+    <div id="authentication" className={styles["auth-container"]}>
       <InputPanel />
     </div>
   )

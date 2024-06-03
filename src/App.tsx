@@ -1,6 +1,7 @@
 import "./App.css"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Core } from "./features/core/core"
+import { Authentication } from "./features/admin/authentication"
 /*
 
 
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <div>login</div>,
+        element: <Authentication />,
         errorElement: <div>error</div>,
       },
       {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <div>admin</div>,
+        element: <div>profile</div>,
         errorElement: <div>error</div>,
       },
       {
