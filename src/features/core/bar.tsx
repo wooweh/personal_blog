@@ -3,6 +3,7 @@ import styles from "./core.module.css"
 import MenuIcon from "@mui/icons-material/MenuRounded"
 import HomeIcon from "@mui/icons-material/HomeRounded"
 import { openMenu } from "./coreSliceUtils"
+import { Menu } from "./menu"
 /*
 
 
@@ -25,9 +26,7 @@ export function Bar() {
       <button className={styles["home-button"]} onClick={handleHomeClick}>
         <HomeIcon />
       </button>
-      <button className={styles["menu-button"]} onClick={handleMenuClick}>
-        <MenuIcon />
-      </button>
+      <Menu />
     </nav>
   )
 }
