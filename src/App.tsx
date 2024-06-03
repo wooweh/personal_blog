@@ -1,6 +1,5 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import "./App.css"
-import { Authentication } from "./features/admin/authentication"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Core } from "./features/core/core"
 /*
 
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Authentication />,
+        element: <div>login</div>,
         errorElement: <div>error</div>,
       },
       {
@@ -28,12 +27,22 @@ const router = createBrowserRouter([
         errorElement: <div>error</div>,
       },
       {
-        path: "/admin",
+        path: "/profile",
         element: <div>admin</div>,
         errorElement: <div>error</div>,
       },
       {
-        path: "/:postId",
+        path: "/blog",
+        element: <div>blog</div>,
+        errorElement: <div>error</div>,
+      },
+      {
+        path: "/blog/new-post",
+        element: <div>newPost</div>,
+        errorElement: <div>error</div>,
+      },
+      {
+        path: "/blog/:postId",
         loader: () => {
           // TODO: Loader function that gets post content from db
           return {}
