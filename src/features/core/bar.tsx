@@ -1,6 +1,7 @@
+import HomeIcon from "@mui/icons-material/HomeRounded"
 import { useLocation, useNavigate } from "react-router-dom"
 import styles from "./core.module.css"
-import MenuIcon from "@mui/icons-material/Menu"
+import { Menu } from "./menu"
 /*
 
 
@@ -10,14 +11,16 @@ export function Bar() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  // const breadCrumbs = getBreadCrumbsFromPath(location.pathname)
+  function handleHomeClick() {
+    navigate("/")
+  }
 
   return (
     <nav className={styles.bar}>
-      <div className={styles["bread-crumbs-container"]}>d</div>
-      <button className={styles["menu-button"]}>
-        <MenuIcon />
+      <button className={styles["home-button"]} onClick={handleHomeClick}>
+        <HomeIcon />
       </button>
+      <Menu />
     </nav>
   )
 }
