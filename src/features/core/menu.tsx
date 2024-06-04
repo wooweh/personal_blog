@@ -13,7 +13,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAppSelector } from "../../app/hooks"
-import { signAdminOut } from "../admin/adminSliceUtils"
+import { signUserOut } from "../user/userSliceUtils"
 import styles from "./core.module.css"
 import { Themes } from "./coreSlice"
 import { selectTheme } from "./coreSliceSelectors"
@@ -159,7 +159,7 @@ function MenuItems() {
     {
       icon: <LogoutIcon />,
       label: "Logout",
-      onClick: signAdminOut,
+      onClick: signUserOut,
     },
   ]
   return (

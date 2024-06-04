@@ -1,9 +1,9 @@
 import { useState } from "react"
 import styles from "./admin.module.css"
-import { signAdminIn } from "./adminSliceUtils"
+import { signUserIn } from "./userSliceUtils"
 import MoonLoader from "react-spinners/MoonLoader"
 import { useAppSelector } from "../../app/hooks"
-import { selectIsSignedIn, selectIsSigningIn } from "./adminSliceSelectors"
+import { selectIsSignedIn, selectIsSigningIn } from "./userSliceSelectors"
 import { useNavigate } from "react-router-dom"
 /*
 
@@ -43,7 +43,7 @@ function InputPanel({ isHidden }: { isHidden: boolean }) {
   }
 
   function handleLoginClick() {
-    signAdminIn(email, password)
+    signUserIn(email, password)
   }
 
   if (isHidden) {

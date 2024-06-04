@@ -1,7 +1,4 @@
 import {
-  EmailAuthProvider,
-  User,
-  reauthenticateWithCredential,
   signInWithEmailAndPassword as signInOnAuth,
   signOut as signOutOnAuth,
 } from "firebase/auth"

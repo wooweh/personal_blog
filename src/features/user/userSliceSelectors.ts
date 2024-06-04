@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit"
-import { adminSelector } from "./adminSlice"
+import { userSelector } from "./userSlice"
 
 /*
 
@@ -7,8 +7,8 @@ import { adminSelector } from "./adminSlice"
 
 */
 export const selectIsSigningIn = createSelector(
-  [adminSelector],
-  admin => admin.authStatus === "signingIn",
+  [userSelector],
+  user => user.authStatus === "signingIn",
 )
 /*
 
@@ -16,8 +16,8 @@ export const selectIsSigningIn = createSelector(
 
 */
 export const selectIsSignedIn = createSelector(
-  [adminSelector],
-  admin => admin.authStatus === "signedIn",
+  [userSelector],
+  user => user.authStatus === "signedIn",
 )
 /*
 

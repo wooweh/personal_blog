@@ -1,13 +1,13 @@
 import { store } from "../../app/store"
 import { initSystemBoot, resetSystem } from "../core/coreSliceUtils"
-import { signIn, signOut } from "./adminAuth"
-import { setAuthStatus } from "./adminSlice"
+import { signIn, signOut } from "./userAuth"
+import { setAuthStatus } from "./userSlice"
 /*
 
 
 
 */
-export function signAdminIn(email: string, password: string) {
+export function signUserIn(email: string, password: string) {
   store.dispatch(setAuthStatus("signingIn"))
   signIn(email, password)
     .then(() => {
@@ -24,7 +24,7 @@ export function signAdminIn(email: string, password: string) {
 
 
 */
-export function signAdminOut() {
+export function signUserOut() {
   signOut()
     .then(() => {
       store.dispatch(setAuthStatus("signedOut"))

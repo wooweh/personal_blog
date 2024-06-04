@@ -11,14 +11,14 @@ export type AuthStatuses = "signedOut" | "signingIn" | "signedIn"
 
 
 */
-export interface AdminSliceState {
+export interface UserSliceState {
   authStatus: AuthStatuses
 }
 
-const initialState: AdminSliceState = {
+const initialState: UserSliceState = {
   authStatus: "signedOut",
 }
-export const adminSlice = createAppSlice({
+export const userSlice = createAppSlice({
   name: "admin",
   initialState,
   reducers: {
@@ -28,8 +28,8 @@ export const adminSlice = createAppSlice({
   },
 })
 
-export const { setAuthStatus } = adminSlice.actions
+export const { setAuthStatus } = userSlice.actions
 
-export const adminSelector = (state: any) => state.admin
+export const userSelector = (state: any) => state.admin
 
-export default adminSlice.reducer
+export default userSlice.reducer
