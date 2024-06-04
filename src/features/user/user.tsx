@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styles from "./admin.module.css"
+import styles from "./user.module.css"
 import { signUserIn } from "./userSliceUtils"
 import MoonLoader from "react-spinners/MoonLoader"
 import { useAppSelector } from "../../app/hooks"
