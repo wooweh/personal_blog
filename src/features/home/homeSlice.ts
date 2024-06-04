@@ -5,23 +5,29 @@ import _ from "lodash"
 
 
 */
-/*
+export interface HomeSliceState {
+  name: string
+  description: string
+}
 
-
-
-*/
-export interface HomeSliceState {}
-
-const initialState: HomeSliceState = {}
+const initialState: HomeSliceState = {
+  name: "",
+  description: "",
+}
 
 export const homeSlice = createSlice({
   name: "home",
   initialState,
   reducers: {
-    reducer: state => {},
+    setName: (state, action: PayloadAction<string>) => {
+      state.name = action.payload
+    },
+    setDescription: (state, action: PayloadAction<string>) => {
+      state.description = action.payload
+    },
   },
 })
 
-export const {} = homeSlice.actions
+export const { setName, setDescription } = homeSlice.actions
 
 export default homeSlice.reducer
