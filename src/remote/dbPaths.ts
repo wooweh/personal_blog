@@ -47,16 +47,6 @@ function getTagPath(name: string) {
 
 
 */
-const adminPath = `${rootPath}/admin`
-const adminPaths = {
-  root: adminPath,
-  email: `${adminPath}/email`,
-}
-/*
-
-
-
-*/
 const metadataPath = `${rootPath}/metadata`
 const metadataPaths = {
   root: metadataPath,
@@ -99,7 +89,6 @@ export const dbPaths = {
   description: descriptionPath,
   checkIns: checkInsPaths,
   tags: tagsPaths,
-  admin: adminPaths,
   metadata: metadataPaths,
   shortContent: shortContentPaths,
   fullContent: fullContentPaths,
