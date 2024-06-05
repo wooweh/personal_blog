@@ -5,15 +5,15 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  padding-top: var(--top-navigation-height);
+  padding-top: var(--top-nav-height);
 }
 
 /* Bar */
 
 .bar {
   width: 100%;
-  height: var(--top-navigation-height);
-  background: var(--background-primary);
+  height: var(--top-nav-height);
+  background: var(--bg-primary);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

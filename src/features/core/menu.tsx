@@ -58,7 +58,7 @@ export function Menu() {
         sx={{
           "& .MuiMenu-paper": {
             padding: "var(--module-3)",
-            background: "var(--background-secondary)",
+            background: "var(--bg-secondary)",
             color: "var(--text-secondary)",
             borderRadius: "var(--module-3)",
           },
@@ -99,7 +99,7 @@ function ThemeButton(props: ThemeButtonProps) {
         fullWidth
         sx={{
           "& .Mui-selected": {
-            background: "var(--background-primary) !important",
+            background: "var(--bg-primary) !important",
           },
           "& .MuiToggleButtonGroup-grouped": {
             border: "none",

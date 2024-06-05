@@ -56,7 +56,7 @@
   --type-article-p: 400 var(--type-base-font-size-rem) /
     var(--font-content-line-height) var(--font-body);
   /* Main element height variables*/
-  --top-navigation-height: var(--module-7);
+  --top-nav-height: var(--module-7);
   /* Main element z-index variables*/
   --z-index-modal-backdrop: 300;
   --z-index-modal-content: 301;
@@ -88,28 +88,28 @@
 .light {
   --text-primary: #1b1b1b;
   --text-secondary: #4e4e4e;
-  --text-active: #858585;
-  --background-primary: #fff;
-  --background-secondary: #f9f9fb;
-  --background-tertiary: #ebeaea;
+  --text-tertiary: #858585;
+  --bg-primary: #fff;
+  --bg-secondary: #f9f9fb;
+  --bg-tertiary: #ebeaea;
 }
 
 .dark {
   --text-primary: #fff;
   --text-secondary: #cdcdcd;
-  --text-active: #bfbfbfa9;
-  --background-primary: #1b1b1b;
-  --background-secondary: #303030;
-  --background-tertiary: #858585;
+  --text-tertiary: #bfbfbfa9;
+  --bg-primary: #1b1b1b;
+  --bg-secondary: #303030;
+  --bg-tertiary: #858585;
 }
 
 .calm {
   --text-primary: #fff;
   --text-secondary: #cdcdcd;
-  --text-active: #bfbfbfa9;
-  --background-primary: #070a33;
-  --background-secondary: #131852;
-  --background-tertiary: #2b2f78;
+  --text-tertiary: #bfbfbfa9;
+  --bg-primary: #070a33;
+  --bg-secondary: #131852;
+  --bg-tertiary: #2b2f78;
 }
 
 html {
@@ -127,7 +127,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--background-primary);
+  background: var(--bg-primary);
   color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: var(--base-font-size);
@@ -169,9 +169,10 @@ h5 {
   display: flex;
   flex-shrink: 0;
   width: 5px; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
+  background: var(--bg-secondary); /* Optional: just make scrollbar invisible */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lightblue;
+  background: var(--bg-tertiary);
+  border-radius: var(--module-2);
 }

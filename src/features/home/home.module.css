@@ -4,6 +4,11 @@
   .home-main-panel {
     flex-direction: row !important;
   }
+
+  .check-in-container {
+    /* background: orange; */
+    padding: var(--module-5);
+  }
 }
 
 .home-container {
@@ -11,7 +16,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: blue;
+  /* background: blue; */
   overflow-y: auto;
 }
 
@@ -19,44 +24,193 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  background: red;
+  /* background: red; */
+}
+
+h5 {
+  font-weight: bold;
 }
 
 .details-container,
 .check-in-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: var(--module-5);
-  background: yellow;
+  align-items: flex-start;
   flex: 1;
-}
-
-.check-in-container {
-  background: orange;
-}
-
-.recents-container {
-  background: green;
-  display: flex;
-  flex-direction: row;
 }
 
 /* Details */
 
 .details,
 .check-in {
-  border-radius: var(--module-5);
   padding: var(--module-5);
-  background: blue;
-  height: 90%;
-  width: 80%;
+  border-radius: var(--module-4);
+  width: 100%;
   min-height: 30rem;
 }
 
 .details-header {
+  background: var(--bg-secondary);
+  padding: var(--module-1) var(--module-4);
+  border-radius: var(--module-4);
 }
 
 .details-body {
   font-size: large;
+  padding-top: var(--module-3);
+  padding-left: var(--module-4);
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--module-4);
+  color: var(--text-secondary);
+}
+
+.blog-button {
+  margin-top: var(--module-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  text-decoration: underline;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* Check in */
+
+.check-in {
+  background: var(--bg-secondary);
+}
+
+.check-in-header,
+.recents-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  gap: var(--module-4);
+}
+
+.check-in-body {
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+}
+
+.emotions-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--module-3);
+}
+
+.emotion-pill {
+  color: var(--text-secondary);
+  padding: var(--module-2) var(--module-4);
+  border-radius: var(--module-4);
+  border: 2px solid var(--bg-tertiary);
+  background: var(--bg-secondary);
+  font-weight: bold;
+}
+
+.emotion-pill-selected {
+  background: var(--bg-tertiary);
+}
+
+.cause-input {
+  width: 100%;
+  height: var(--module-6);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  box-shadow: 0px 2px 4px var(--bg-primary);
+}
+
+.cause-input:focus {
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px var(--bg-secondary);
+  background: var(--bg-primary);
+  color: var(--text-tertiary);
+}
+
+.cause-input:focus-visible {
+  outline: 0;
+}
+
+.button-tray {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: var(--module-6);
+}
+
+.submit-button,
+.clear-button {
+  padding: var(--module-3) var(--module-4);
+  border-radius: var(--module-2);
+  border: 2px solid var(--bg-tertiary);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-weight: bold;
+}
+
+.submit-button {
+  background: var(--bg-primary);
+}
+
+/* Recents */
+
+.recents-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+}
+
+.recents {
+  border-radius: var(--module-4);
+  padding: var(--module-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+}
+
+.recents-header {
+  font-size: large;
+  font-weight: bold;
+}
+
+.recents-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+}
+
+.recents-item-button {
+  background: var(--bg-secondary);
+  padding: var(--module-4) var(--module-4);
+  border-radius: var(--module-2);
+  border: 2px solid var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.recents-placeholder {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding-bottom: var(--module-4);
 }

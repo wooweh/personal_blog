@@ -1,6 +1,7 @@
 import { CheckIn } from "./checkIn"
 import { Details } from "./details"
 import styles from "./home.module.css"
+import { Recents } from "./recents"
 /*
 
 
@@ -17,7 +18,9 @@ export function Home() {
           <CheckIn />
         </div>
       </div>
-      <div className={styles["recents-container"]}></div>
+      <div className={styles["recents-container"]}>
+        <Recents />
+      </div>
     </div>
   )
 }

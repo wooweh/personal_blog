@@ -70,7 +70,7 @@ function AuthLoader({ isLoading }: AuthLoaderProps) {
   return (
     <div>
       <MoonLoader
-        color={"var(--background-secondary)"}
+        color={"var(--bg-secondary)"}
         loading={isLoading}
         size={150}
         aria-label="Loading Spinner"
