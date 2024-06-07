@@ -24,8 +24,8 @@
   top: 0;
 }
 
-.home-button,
-.menu-button {
+.homeButton,
+.menuButton {
   background: none;
   border: none;
   cursor: pointer;
@@ -33,7 +33,7 @@
 
 /* Menu */
 
-.theme-control-container {
+.themeControlContainer {
   width: var(--module-9);
   display: flex;
   flex-direction: column;
@@ -42,17 +42,7 @@
   padding: var(--module-2);
 }
 
-.theme-button-group-header {
-  display: flex;
-  width: var(--module-9);
-  flex-direction: row;
-  align-items: center;
-  gap: var(--module-3);
-  justify-content: center;
-  color: var(--text-secondary);
-}
-
-.menu-divider {
+.menuDivider {
   width: 100%;
   height: 1px;
   margin-top: var(--module-3);

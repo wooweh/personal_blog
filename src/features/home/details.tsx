@@ -31,10 +31,10 @@ export function Details() {
 
   return (
     <div className={styles["details"]}>
-      <div className={styles["details-header"]}>
+      <div className={styles["detailsHeader"]}>
         <h1>BlogName</h1>
       </div>
-      <div className={styles["details-body"]}>
+      <div className={styles["detailsBody"]}>
         <Detail icon={<DayIcon fontSize="medium" />} label={getLongDate()} />
         <Detail icon={<CheckInIcon fontSize="medium" />} label={checkInLabel} />
         <Detail icon={<BlogIcon fontSize="medium" />} label={postLabel} />
@@ -68,7 +68,7 @@ function Detail(props: DetailProps) {
 export function BlogButton() {
   const navigate = useNavigate()
   return (
-    <button className={styles["blog-button"]} onClick={() => navigate("/blog")}>
+    <button className={styles["blogButton"]} onClick={() => navigate("/blog")}>
       Go to blog <ArrowRightIcon fontSize="large" />
     </button>
   )

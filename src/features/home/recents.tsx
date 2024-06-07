@@ -9,11 +9,11 @@ import RecentsIcon from "@mui/icons-material/AccessTimeRounded"
 export function Recents() {
   return (
     <div className={styles["recents"]}>
-      <div className={styles["recents-header"]}>
+      <div className={styles["recentsHeader"]}>
         <RecentsIcon fontSize="large" />
         <h3>Recents</h3>
       </div>
-      <div className={styles["recents-body"]}>
+      <div className={styles["recentsBody"]}>
         {/* <RecentsItem title="Being Me" onClick={() => {}} />
         <RecentsItem title="Day in the sun" onClick={() => {}} />
         <RecentsItem title="Joy" onClick={() => {}} /> */}
@@ -33,7 +33,7 @@ type RecentsItemProps = {
 }
 function RecentsItem(props: RecentsItemProps) {
   return (
-    <button className={styles["recents-item-button"]} onClick={props.onClick}>
+    <button className={styles["recentsItemButton"]} onClick={props.onClick}>
       {props.title}
     </button>
   )
@@ -44,7 +44,7 @@ function RecentsItem(props: RecentsItemProps) {
 
 */
 function RecentsPlaceholder() {
-  return <div className={styles["recents-placeholder"]}>No recents</div>
+  return <div className={styles["recentsPlaceholder"]}>No recents</div>
 }
 /*
 
