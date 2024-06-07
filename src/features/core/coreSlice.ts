@@ -1,10 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { RootState } from "../../app/store"
 /*
 
 
 
 */
 export type SystemStatuses = "booted" | "notBooted" | "booting"
+export type Themes = "light" | "dark" | "calm"
 /*
 
 
@@ -12,10 +14,14 @@ export type SystemStatuses = "booted" | "notBooted" | "booting"
 */
 export interface CoreSliceState {
   systemStatus: SystemStatuses
+  showMenu: boolean
+  theme: Themes
 }
 
 const initialState: CoreSliceState = {
   systemStatus: "notBooted",
+  showMenu: false,
+  theme: "dark",
 }
 export const coreSlice = createSlice({
   name: "core",
@@ -24,12 +30,17 @@ export const coreSlice = createSlice({
     setSystemStatus: (state, action: PayloadAction<SystemStatuses>) => {
       state.systemStatus = action.payload
     },
+    setShowMenu: (state, action: PayloadAction<boolean>) => {
+      state.showMenu = action.payload
+    },
+    setTheme: (state, action: PayloadAction<Themes>) => {
+      state.theme = action.payload
+    },
   },
-  selectors: {},
 })
 
-export const { setSystemStatus } = coreSlice.actions
+export const { setSystemStatus, setShowMenu, setTheme } = coreSlice.actions
 
-export const {} = coreSlice.selectors
+export const coreSelector = (state: RootState) => state.core
 
 export default coreSlice.reducer
