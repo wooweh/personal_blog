@@ -9,18 +9,6 @@ const rootPath = import.meta.env.VITE_DB_ROOT_PATH
 
 
 */
-const namePath = `${rootPath}/name`
-/*
-
-
-
-*/
-const descriptionPath = `${rootPath}/description`
-/*
-
-
-
-*/
 const checkInsPath = `${rootPath}/checkIns`
 const checkInsPaths = {
   root: checkInsPath,
@@ -85,8 +73,6 @@ function getPostFullContentPath(uuid: string) {
 
 */
 export const dbPaths = {
-  name: namePath,
-  description: descriptionPath,
   checkIns: checkInsPaths,
   tags: tagsPaths,
   metadata: metadataPaths,
