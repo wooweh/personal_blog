@@ -3,6 +3,7 @@ import DayIcon from "@mui/icons-material/LightModeRounded"
 import BlogIcon from "@mui/icons-material/ArticleRounded"
 import CheckInIcon from "@mui/icons-material/EmojiPeopleRounded"
 import ArrowRightIcon from "@mui/icons-material/ArrowRightAltRounded"
+import PsychologyIcon from "@mui/icons-material/PsychologyRounded"
 import { getDaysDiff, getLongDate } from "../../common/date"
 import { useNavigate } from "react-router-dom"
 /*
@@ -32,7 +33,8 @@ export function Details() {
   return (
     <div className={styles.details}>
       <div className={styles.detailsHeader}>
-        <h1>BlogName</h1>
+        <PsychologyIcon fontSize="large" />
+        <h1>Psych Tracker</h1>
       </div>
       <div className={styles.detailsBody}>
         <Detail icon={<DayIcon fontSize="medium" />} label={getLongDate()} />

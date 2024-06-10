@@ -11,12 +11,11 @@
   }
 }
 
-.home-container {
+.homeContainer {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* background: blue; */
   overflow-y: auto;
 }
 
@@ -24,7 +23,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  /* background: red; */
 }
 
 h5 {
@@ -43,13 +41,17 @@ h5 {
 
 .details,
 .checkIn {
-  padding: var(--module-5);
+  padding: var(--module-4);
   border-radius: var(--module-4);
   width: 100%;
   min-height: 30rem;
 }
 
 .detailsHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--module-4);
   background: var(--bg-secondary);
   padding: var(--module-1) var(--module-4);
   border-radius: var(--module-4);
@@ -161,8 +163,9 @@ h5 {
 
 .submitButton,
 .clearButton {
+  width: var(--module-8);
   padding: var(--module-3) var(--module-4);
-  border-radius: var(--module-2);
+  border-radius: var(--module-3);
   border: 2px solid var(--bg-tertiary);
   color: var(--text-secondary);
   background: var(--bg-secondary);

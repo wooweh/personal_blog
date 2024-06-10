@@ -25,14 +25,10 @@ export type Emotions =
 
 */
 export interface HomeSliceState {
-  name: string
-  description: string
   checkIns: CheckInProps | {}
 }
 
 const initialState: HomeSliceState = {
-  name: "",
-  description: "",
   checkIns: {},
 }
 
@@ -40,12 +36,6 @@ export const homeSlice = createSlice({
   name: "home",
   initialState,
   reducers: {
-    setName: (state, action: PayloadAction<string>) => {
-      state.name = action.payload
-    },
-    setDescription: (state, action: PayloadAction<string>) => {
-      state.description = action.payload
-    },
     setCheckIn: (state, action: PayloadAction<CheckInProps>) => {
       _.set(state.checkIns, action.payload.date, action.payload)
     },
@@ -55,7 +45,6 @@ export const homeSlice = createSlice({
   },
 })
 
-export const { setName, setDescription, setCheckIn, deleteCheckIn } =
-  homeSlice.actions
+export const { setCheckIn, deleteCheckIn } = homeSlice.actions
 
 export default homeSlice.reducer
