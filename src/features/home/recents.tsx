@@ -1,4 +1,4 @@
-import { BlogButton } from "./details"
+import { PostProps } from "../posts/postsSlice"
 import styles from "./home.module.css"
 import RecentsIcon from "@mui/icons-material/AccessTimeRounded"
 /*
@@ -7,6 +7,8 @@ import RecentsIcon from "@mui/icons-material/AccessTimeRounded"
 
 */
 export function Recents() {
+  // TODO: Selector for recents
+  const recentPosts: PostProps[] = []
   return (
     <div className={styles.recents}>
       <div className={styles.recentsHeader}>
@@ -14,10 +16,18 @@ export function Recents() {
         <h3>Recents</h3>
       </div>
       <div className={styles.recentsBody}>
-        {/* <RecentsItem title="Being Me" onClick={() => {}} />
-        <RecentsItem title="Day in the sun" onClick={() => {}} />
-        <RecentsItem title="Joy" onClick={() => {}} /> */}
-        <RecentsPlaceholder />
+        {!!recentPosts.length ? (
+          recentPosts.map(post => (
+            <RecentsItem
+              title={post.title}
+              onClick={() => {
+                // TODO: navigate to post id
+              }}
+            />
+          ))
+        ) : (
+          <RecentsPlaceholder />
+        )}
       </div>
     </div>
   )

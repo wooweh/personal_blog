@@ -5,7 +5,6 @@ import homeReducer, {
   HomeSliceState,
   deleteCheckIn,
   setCheckIn,
-  setName,
 } from "./homeSlice"
 /*
 
@@ -14,14 +13,12 @@ import homeReducer, {
 */
 describe("home slice", () => {
   const initialState: HomeSliceState = {
-    name: "",
     checkIns: {},
   }
 
   const checkInDate = Date.now().toLocaleString()
 
   const mockState: HomeSliceState = {
-    name: "TestName",
     checkIns: {
       checkInDate: {
         date: checkInDate,
@@ -33,15 +30,8 @@ describe("home slice", () => {
 
   it("should handle initial state", () => {
     expect(homeReducer(undefined, { type: "unknown" })).toStrictEqual({
-      name: "",
       checkIns: {},
     })
-  })
-
-  it("should handle setName", () => {
-    const name = "TestName"
-    const actual = homeReducer(initialState, setName(name))
-    expect(actual.name).toEqual(name)
   })
 
   it("should handle setCheckIn", () => {

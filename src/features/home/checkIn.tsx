@@ -72,11 +72,11 @@ export function CheckIn() {
     emotions: [],
   })
   const [cause, setCause] = useState("")
-  const emotions = state.Emotions
-  console.log(cause)
+  const emotions = state.emotions
 
   function handleSubmit() {
     submitCheckIn(emotions, cause)
+    setCause("")
   }
 
   function handleClear() {
