@@ -30,11 +30,11 @@ export function Details() {
     : "No posts yet"
 
   return (
-    <div className={styles["details"]}>
-      <div className={styles["detailsHeader"]}>
+    <div className={styles.details}>
+      <div className={styles.detailsHeader}>
         <h1>BlogName</h1>
       </div>
-      <div className={styles["detailsBody"]}>
+      <div className={styles.detailsBody}>
         <Detail icon={<DayIcon fontSize="medium" />} label={getLongDate()} />
         <Detail icon={<CheckInIcon fontSize="medium" />} label={checkInLabel} />
         <Detail icon={<BlogIcon fontSize="medium" />} label={postLabel} />
@@ -54,7 +54,7 @@ type DetailProps = {
 }
 function Detail(props: DetailProps) {
   return (
-    <div className={styles["detail"]}>
+    <div className={styles.detail}>
       {props.icon}
       <h4>{props.label}</h4>
     </div>
@@ -68,7 +68,7 @@ function Detail(props: DetailProps) {
 export function BlogButton() {
   const navigate = useNavigate()
   return (
-    <button className={styles["blogButton"]} onClick={() => navigate("/blog")}>
+    <button className={styles.blogButton} onClick={() => navigate("/blog")}>
       Go to blog <ArrowRightIcon fontSize="large" />
     </button>
   )

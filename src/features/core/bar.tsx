@@ -17,7 +17,7 @@ export function Bar() {
 
   return (
     <nav className={styles.bar}>
-      <button className={styles["homeButton"]} onClick={handleHomeClick}>
+      <button className={styles.homeButton} onClick={handleHomeClick}>
         <HomeIcon />
       </button>
       <Menu />

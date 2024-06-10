@@ -160,7 +160,7 @@ h5 {
 }
 
 .submitButton,
-.clear-button {
+.clearButton {
   padding: var(--module-3) var(--module-4);
   border-radius: var(--module-2);
   border: 2px solid var(--bg-tertiary);

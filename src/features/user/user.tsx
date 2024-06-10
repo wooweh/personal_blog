@@ -32,7 +32,7 @@ export function Authentication() {
   if (isSignedIn) navigate("/")
 
   return (
-    <div id="authentication" className={styles["authContainer"]}>
+    <div id="authentication" className={styles.authContainer}>
       <InputPanel isHidden={isSigningIn} />
       <AuthLoader isLoading={isSigningIn} />
     </div>
@@ -65,7 +65,7 @@ function InputPanel({ isHidden }: { isHidden: boolean }) {
   }
 
   return (
-    <form className={styles["authInputPanel"]}>
+    <form className={styles.authInputPanel}>
       <Input value={email} onChange={handleEmailChange} />
       <Input value={password} onChange={handlePasswordChange} isPassword />
       <LoginButton onClick={handleLoginClick} />
@@ -107,7 +107,7 @@ function Input(props: InputProps) {
   return (
     <input
       value={props.value}
-      className={styles["authInput"]}
+      className={styles.authInput}
       type={props.isPassword ? "password" : "email"}
       placeholder={props.isPassword ? "Password" : "Email"}
       onChange={props.onChange}
@@ -121,7 +121,7 @@ function Input(props: InputProps) {
 */
 function LoginButton({ onClick }: { onClick: () => void }) {
   return (
-    <button className={styles["loginButton"]} onClick={onClick}>
+    <button className={styles.loginButton} onClick={onClick}>
       Login
     </button>
   )
