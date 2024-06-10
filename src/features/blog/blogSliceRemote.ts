@@ -16,13 +16,13 @@ export async function getBlogFromDB() {
 
 
 */
-export async function setBlogTagOnDB(tag: string) {}
+export async function setTagOnDB(tag: string) {}
 /*
 
 
 
 */
-export async function deleteBlogTagOnDB(tag: string) {}
+export async function deleteTagOnDB(tag: string) {}
 /*
 
 

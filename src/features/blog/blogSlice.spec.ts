@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest"
 import blogReducer, {
   BlogProps,
   BlogSliceState,
-  deleteBlogTag,
+  deleteTag,
   setBlog,
-  setBlogTag,
+  setTag,
 } from "./blogSlice"
 /*
 
@@ -14,7 +14,13 @@ import blogReducer, {
 describe("core slice", () => {
   const initialState: BlogSliceState = {
     showFilter: false,
-    blog: { tags: {} },
+    tags: {},
+    filters: {
+      isNewest: true,
+      from: "",
+      to: "",
+      tags: {},
+    },
   }
 
   it("should handle initial state", () => {
@@ -24,30 +30,29 @@ describe("core slice", () => {
     })
   })
 
-  it("should handle setBlogTag", () => {
+  it("should handle setTag", () => {
     const tagName = "myBlog"
-    const actual = blogReducer(initialState, setBlogTag(tagName))
-    expect(actual.blog.tags.tagName).toEqual(tagName)
+    const actual = blogReducer(initialState, setTag(tagName))
+    expect(actual.tags.tagName).toEqual(tagName)
   })
 
-  it("should handle deleteBlogTag", () => {
+  it("should handle deleteTag", () => {
     const tagName = "tagName"
-    const actual = blogReducer(initialState, deleteBlogTag(tagName))
-    expect(actual.blog.tags.tagName).toBeUndefined()
+    const actual = blogReducer(initialState, deleteTag(tagName))
+    expect(actual.tags.tagName).toBeUndefined()
   })
 
-  it("should handle setBlog", () => {
-    const blog: BlogProps = {
-      tags: {
-        tagName: "tagName",
-      },
+  it("should handle setTags", () => {
+    const tags = {
+      mockTag1: "mockTag1",
+      mockTag2: "mockTag2",
     }
-    const actual = blogReducer(initialState, setBlog(blog))
-    expect(actual.blog).toEqual(blog)
+    const actual = blogReducer(initialState, setBlog(tags))
+    expect(actual.tags).toEqual(tags)
   })
 
   it("should handle resetBlog", () => {
-    const actual = blogReducer(initialState, setBlog(initialState.blog))
-    expect(actual.blog).toEqual(initialState.blog)
+    const actual = blogReducer(initialState, setBlog(initialState.tags))
+    expect(actual.tags).toEqual(initialState.tags)
   })
 })
