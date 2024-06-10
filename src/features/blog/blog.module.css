@@ -1,0 +1,21 @@
+/* Blog */
+
+@media screen and (min-width: 950px) {
+}
+
+.blogContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  /* background: green; */
+}
+
+.searchContainer {
+  position: fixed;
+  top: var(--top-nav-height);
+  width: 100%;
+  /* background: blue; */
+  padding: var(--module-3) var(--module-4);
+}
