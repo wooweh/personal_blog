@@ -8,11 +8,9 @@ import { createAppSlice } from "../../app/createAppSlice"
 */
 export type PostStatuses = "draft" | "published" | "saving" | "deleting"
 export type PostsProps = {
-  tags: Tags | {}
   metadata: MetadataProps | {}
   shortContent: ShortContentProps | {}
 }
-export type Tags = { [key: string]: string }
 export type MetadataProps = {
   [key: string]: PostProps
 }
@@ -22,6 +20,7 @@ export type PostProps = {
   created: string
   updated?: string
 }
+export type Tags = { [key: string]: string }
 export type ShortContentProps = {
   [key: string]: string
 }
@@ -63,7 +62,6 @@ export interface PostsSliceState {
 const initialState: PostsSliceState = {
   postStatus: "draft",
   posts: {
-    tags: {},
     metadata: {},
     shortContent: {},
   },
@@ -75,17 +73,6 @@ export const postsSlice = createAppSlice({
   reducers: {
     setPostStatus: (state, action: PayloadAction<PostStatuses>) => {
       state.postStatus = action.payload
-    },
-    setTag: (state, action: PayloadAction<string>) => {
-      const tagName = action.payload
-      _.set(state.posts.tags, tagName, tagName)
-    },
-    deleteTag: (state, action: PayloadAction<string>) => {
-      const tagName = action.payload
-      _.unset(state.posts.tags, tagName)
-    },
-    setTags: (state, action: PayloadAction<Tags>) => {
-      state.posts.tags = action.payload
     },
     setMetadata: (state, action: PayloadAction<MetadataProps>) => {
       state.posts.metadata = action.payload
@@ -124,9 +111,6 @@ export const postsSlice = createAppSlice({
 
 export const {
   setPostStatus,
-  setTag,
-  deleteTag,
-  setTags,
   setMetadata,
   setShortContent,
   setPostMetadata,

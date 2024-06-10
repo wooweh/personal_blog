@@ -24,7 +24,6 @@ import postsReducer, {
 describe("post slice", () => {
   const initialState: PostsSliceState = {
     posts: {
-      tags: {},
       metadata: {},
       shortContent: {},
     },
@@ -34,10 +33,6 @@ describe("post slice", () => {
   const mockState: PostsSliceState = {
     postStatus: "draft",
     posts: {
-      tags: {
-        mockTag1: "mockTag1",
-        mockTag2: "mockTag2",
-      },
       metadata: {
         mockPost1: {
           title: "mockTitle",
@@ -65,31 +60,6 @@ describe("post slice", () => {
     const status: PostStatuses = "published"
     const actual = postsReducer(initialState, setPostStatus(status))
     expect(actual.postStatus).toBe(status)
-  })
-
-  it("should handle setTag", () => {
-    const tagName = "mockTag1"
-    const actual = postsReducer(initialState, setTag(tagName))
-    const tags = actual.posts.tags
-    const tag = tags[tagName as keyof typeof tags]
-    expect(tag).toEqual(tagName)
-  })
-
-  it("should handle deleteTag", () => {
-    const tagName = "mockTag1"
-    const actual = postsReducer(mockState, deleteTag(tagName))
-    const tags = actual.posts.tags
-    const tag = tags[tagName as keyof typeof tags]
-    expect(tag).toEqual(undefined)
-  })
-
-  it("should handle setTags", () => {
-    const tags = {
-      mockTag1: "mockTag1",
-      mockTag2: "mockTag2",
-    }
-    const actual = postsReducer(initialState, setTags(tags))
-    expect(actual.posts.tags).toEqual(tags)
   })
 
   it("should handle setMetadata", () => {
