@@ -85,20 +85,20 @@ export function CheckIn() {
   }
 
   return (
-    <div className={styles["check-in"]}>
-      <div className={styles["check-in-header"]}>
+    <div className={styles.checkIn}>
+      <div className={styles.checkInHeader}>
         <CheckInIcon fontSize="large" />
         <h2>Check in</h2>
       </div>
-      <div className={styles["check-in-body"]}>
+      <div className={styles.checkInBody}>
         <EmotionSelection state={state} dispatch={dispatch} />
         <CauseInput cause={cause} setCause={setCause} />
       </div>
-      <div className={styles["button-tray"]}>
-        <button className={styles["submit-button"]} onClick={handleSubmit}>
+      <div className={styles.buttonTray}>
+        <button className={styles.submitButton} onClick={handleSubmit}>
           Submit
         </button>
-        <button className={styles["clear-button"]} onClick={handleClear}>
+        <button className={styles.clearButton} onClick={handleClear}>
           Clear
         </button>
       </div>
@@ -128,9 +128,9 @@ function EmotionSelection(props: EmotionSelectionProps) {
   ]
 
   return (
-    <div className={styles["question-container"]}>
+    <div className={styles.questionContainer}>
       <h5>What emotions dominated your past day of experience?</h5>
-      <div className={styles["emotions-container"]}>
+      <div className={styles.emotionsContainer}>
         {emotions.map(emotion => {
           const isSelected = _.includes(selectedEmotions, emotion)
           return (
@@ -159,7 +159,7 @@ type EmotionPillProps = {
   onClick: Function
 }
 function EmotionPill(props: EmotionPillProps) {
-  const buttonStyles = `${styles["emotion-pill"]} ${props.isSelected && styles["emotion-pill-selected"]}`
+  const buttonStyles = `${styles.emotionPill} ${props.isSelected && styles.emotionPillSelected}`
   return (
     <button className={buttonStyles} onClick={() => props.onClick()}>
       {props.emotion}
@@ -179,11 +179,11 @@ function CauseInput(props: CauseInputProps) {
   const { cause, setCause } = props
 
   return (
-    <div className={styles["question-container"]}>
+    <div className={styles.questionContainer}>
       <h5>What do you think caused this experience?</h5>
       <input
         value={cause}
-        className={styles["cause-input"]}
+        className={styles.causeInput}
         type="text"
         placeholder="Short statement or leave blank"
         onChange={(e: any) => setCause(e.target.value)}

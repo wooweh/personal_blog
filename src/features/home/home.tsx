@@ -9,16 +9,16 @@ import { Recents } from "./recents"
 */
 export function Home() {
   return (
-    <div className={styles["home-container"]}>
-      <div className={styles["home-main-panel"]}>
-        <div className={styles["details-container"]}>
+    <div className={styles.home-container}>
+      <div className={styles.homeMainPanel}>
+        <div className={styles.detailsContainer}>
           <Details />
         </div>
-        <div className={styles["check-in-container"]}>
+        <div className={styles.checkInContainer}>
           <CheckIn />
         </div>
       </div>
-      <div className={styles["recents-container"]}>
+      <div className={styles.recentsContainer}>
         <Recents />
       </div>
     </div>

@@ -1,11 +1,11 @@
 /* Home */
 
 @media screen and (min-width: 950px) {
-  .home-main-panel {
+  .homeMainPanel {
     flex-direction: row !important;
   }
 
-  .check-in-container {
+  .checkInContainer {
     /* background: orange; */
     padding: var(--module-5);
   }
@@ -20,7 +20,7 @@
   overflow-y: auto;
 }
 
-.home-main-panel {
+.homeMainPanel {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -31,8 +31,8 @@ h5 {
   font-weight: bold;
 }
 
-.details-container,
-.check-in-container {
+.detailsContainer,
+.checkInContainer {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -42,20 +42,20 @@ h5 {
 /* Details */
 
 .details,
-.check-in {
+.checkIn {
   padding: var(--module-5);
   border-radius: var(--module-4);
   width: 100%;
   min-height: 30rem;
 }
 
-.details-header {
+.detailsHeader {
   background: var(--bg-secondary);
   padding: var(--module-1) var(--module-4);
   border-radius: var(--module-4);
 }
 
-.details-body {
+.detailsBody {
   font-size: large;
   padding-top: var(--module-3);
   padding-left: var(--module-4);
@@ -69,7 +69,7 @@ h5 {
   color: var(--text-secondary);
 }
 
-.blog-button {
+.blogButton {
   margin-top: var(--module-5);
   display: flex;
   align-items: center;
@@ -84,12 +84,12 @@ h5 {
 
 /* Check in */
 
-.check-in {
+.checkIn {
   background: var(--bg-secondary);
 }
 
-.check-in-header,
-.recents-header {
+.checkInHeader,
+.recentsHeader {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -98,23 +98,23 @@ h5 {
   gap: var(--module-4);
 }
 
-.check-in-body {
+.checkInBody {
 }
 
-.question-container {
+.questionContainer {
   display: flex;
   flex-direction: column;
   gap: var(--module-3);
 }
 
-.emotions-container {
+.emotionsContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: var(--module-3);
 }
 
-.emotion-pill {
+.emotionPill {
   color: var(--text-secondary);
   padding: var(--module-2) var(--module-4);
   border-radius: var(--module-4);
@@ -123,11 +123,11 @@ h5 {
   font-weight: bold;
 }
 
-.emotion-pill-selected {
+.emotionPillSelected {
   background: var(--bg-tertiary);
 }
 
-.cause-input {
+.causeInput {
   width: 100%;
   height: var(--module-6);
   font-size: 0.875rem;
@@ -141,26 +141,26 @@ h5 {
   box-shadow: 0px 2px 4px var(--bg-primary);
 }
 
-.cause-input:focus {
+.causeInput:focus {
   border-color: var(--color-blue);
   box-shadow: 0 0 0 3px var(--bg-secondary);
   background: var(--bg-primary);
   color: var(--text-tertiary);
 }
 
-.cause-input:focus-visible {
+.causeInput:focus-visible {
   outline: 0;
 }
 
-.button-tray {
+.buttonTray {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: var(--module-6);
 }
 
-.submit-button,
-.clear-button {
+.submitButton,
+.clearButton {
   padding: var(--module-3) var(--module-4);
   border-radius: var(--module-2);
   border: 2px solid var(--bg-tertiary);
@@ -169,13 +169,13 @@ h5 {
   font-weight: bold;
 }
 
-.submit-button {
+.submitButton {
   background: var(--bg-primary);
 }
 
 /* Recents */
 
-.recents-container {
+.recentsContainer {
   display: flex;
   flex-direction: column;
   gap: var(--module-3);
@@ -189,18 +189,18 @@ h5 {
   gap: var(--module-3);
 }
 
-.recents-header {
+.recentsHeader {
   font-size: large;
   font-weight: bold;
 }
 
-.recents-body {
+.recentsBody {
   display: flex;
   flex-direction: column;
   gap: var(--module-3);
 }
 
-.recents-item-button {
+.recentsItemButton {
   background: var(--bg-secondary);
   padding: var(--module-4) var(--module-4);
   border-radius: var(--module-2);
@@ -209,7 +209,7 @@ h5 {
   font-weight: bold;
 }
 
-.recents-placeholder {
+.recentsPlaceholder {
   text-align: center;
   color: var(--text-tertiary);
   padding-bottom: var(--module-4);

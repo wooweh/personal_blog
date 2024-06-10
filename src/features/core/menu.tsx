@@ -36,8 +36,8 @@ export function Menu() {
   return (
     <div>
       <button
-        id="menu-button"
-        className={styles["menu-button"]}
+        id="menuButton"
+        className={styles.menuButton}
         onClick={handleClick}
       >
         <MenuIcon />
@@ -65,7 +65,7 @@ export function Menu() {
         }}
       >
         <ThemeButton theme={theme} />
-        <div className={styles["menu-divider"]}></div>
+        <div className={styles.menuDivider}></div>
         <MenuItems />
       </MuiMenu>
     </div>
@@ -91,7 +91,7 @@ function ThemeButton(props: ThemeButtonProps) {
   }
 
   return (
-    <div className={styles["theme-control-container"]}>
+    <div className={styles.themeControlContainer}>
       <ToggleButtonGroup
         value={view}
         exclusive
