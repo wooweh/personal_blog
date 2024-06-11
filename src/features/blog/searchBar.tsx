@@ -5,47 +5,28 @@ import styles from "./blog.module.css"
 
 
 */
+export type SearchBarProps = {
+  items: SearchItemProps[]
+  onSelect: (item: SearchItemProps) => void
+}
 export type SearchItemProps = {
   id: number
   name: string
 }
-export function SearchBar() {
-  const items = [
-    {
-      id: 0,
-      name: "Cobol",
-    },
-    {
-      id: 1,
-      name: "JavaScript",
-    },
-    {
-      id: 2,
-      name: "Basic",
-    },
-  ]
-
-  function handleSelect(item: SearchItemProps) {
-    console.log(item)
-  }
-
+export function SearchBar(props: SearchBarProps) {
   function formatResult(item: SearchItemProps) {
     return (
-      <>
-        <span style={{ display: "block", textAlign: "left" }}>
-          id: {item.id}
-        </span>
-        <span style={{ display: "block", textAlign: "left" }}>
-          name: {item.name}
-        </span>
-      </>
+      <span style={{ display: "block", textAlign: "left", padding: "5px" }}>
+        {item.name}
+      </span>
     )
   }
 
   return (
     <div className={styles.searchContainer}>
       <ReactSearchAutocomplete
-        items={items}
+        items={props.items}
+        onSelect={props.onSelect}
         formatResult={formatResult}
         placeholder="Search"
         styling={{

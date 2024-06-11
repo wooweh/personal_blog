@@ -82,6 +82,7 @@
       var(--heading-line-height) var(--font-heading);
     --type-heading-h4: 400 var(--type-heading-h4-font-size) /
       var(--heading-line-height) var(--font-heading);
+    --top-nav-height: var(--module-7);
   }
 }
 

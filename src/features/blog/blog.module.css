@@ -4,18 +4,122 @@
 }
 
 .blogContainer {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  /* background: green; */
 }
 
+.blogSearchControls {
+  display: flex;
+  flex-direction: row;
+  padding: var(--module-3) var(--module-4);
+  gap: var(--module-4);
+}
+
+.closeFilterButton,
+.openFilterButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+}
+
+/* SearchBar */
+
 .searchContainer {
-  position: fixed;
   top: var(--top-nav-height);
   width: 100%;
-  /* background: blue; */
-  padding: var(--module-3) var(--module-4);
+}
+
+/* PostFilter */
+
+.filterContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  height: 100%;
+}
+
+.filterContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+  background: var(--bg-secondary);
+  border-radius: var(--module-4);
+  width: calc(100% - var(--module-4));
+  height: calc(100% - var(--module-3));
+  padding: var(--module-4);
+  justify-content: flex-start;
+}
+
+.filterHeader {
+  width: 100%;
+  display: flex;
+  height: min-content;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filterHeading {
+  display: flex;
+  font-size: var(--type-heading-h3-font-size);
+  font-weight: bold;
+  height: min-content;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--module-4);
+}
+
+.closeFilterIcon {
+  color: red;
+}
+
+.filterTypeContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+  padding: var(--module-3);
+  background: var(--bg-primary);
+  border-radius: var(--module-3);
+}
+
+.filterTypeHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--module-4);
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.filterTypeBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--module-3);
+}
+
+.clearFiltersButton {
+  height: var(--module-6);
+  background: var(--bg-primary);
+  color: var(--text-tertiary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: var(--module-3);
+  width: 100%;
+  font-weight: bold;
+  font-size: large;
+}
+
+.filterPill {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-radius: var(--module-5);
+  padding: var(--module-1);
 }
