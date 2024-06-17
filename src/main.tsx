@@ -6,13 +6,17 @@ import { LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import App from "./App"
 import { persistor, store } from "./app/store"
+import { ThemeProvider } from "@emotion/react"
+import { muiTheme } from "./common/muiStyleOverrides"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <App />
+          <ThemeProvider theme={muiTheme}>
+            <App />
+          </ThemeProvider>
         </LocalizationProvider>
       </PersistGate>
     </Provider>

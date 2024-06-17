@@ -16,7 +16,13 @@ export type SearchItemProps = {
 export function SearchBar(props: SearchBarProps) {
   function formatResult(item: SearchItemProps) {
     return (
-      <span style={{ display: "block", textAlign: "left", padding: "5px" }}>
+      <span
+        style={{
+          display: "block",
+          textAlign: "left",
+          padding: "5px",
+        }}
+      >
         {item.name}
       </span>
     )
