@@ -2,12 +2,14 @@ import styles from "./blog.module.css"
 import { Virtuoso } from "react-virtuoso"
 import ScrollToTopIcon from "@mui/icons-material/KeyboardArrowUpRounded"
 import { useRef } from "react"
+import { useNavigate } from "react-router-dom"
 /*
 
 
 
 */
 export function PostList() {
+  const navigate = useNavigate()
   const virtuosoRef: any = useRef(null)
 
   function handleScrollToTop() {
@@ -28,6 +30,7 @@ export function PostList() {
         itemContent={(index: number) => {
           function handleClick() {
             // TODO: Navigate to postId
+            navigate(`/blog/${index.toString()}`)
           }
           return (
             <PostSummary
@@ -37,7 +40,7 @@ export function PostList() {
               }
               createdDate={index.toString()}
               tags={["happy", "new start", "fun"]}
-              onClick={() => {}}
+              onClick={handleClick}
             />
           )
         }}

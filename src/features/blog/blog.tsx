@@ -4,6 +4,7 @@ import { SearchBar, SearchItemProps } from "./searchBar"
 import FilterIcon from "@mui/icons-material/FilterAltRounded"
 import { PostFilter } from "./postFilter"
 import { PostList } from "./postList"
+import { useNavigate } from "react-router-dom"
 /*
 
 
@@ -11,9 +12,23 @@ import { PostList } from "./postList"
 */
 export function Blog() {
   const [showFilter, setShowFilter] = useState(false)
+  const searchItems: SearchItemProps[] = [
+    {
+      id: 1,
+      name: "Post 1",
+    },
+    {
+      id: 2,
+      name: "Post 2",
+    },
+    {
+      id: 3,
+      name: "Post 3",
+    },
+  ]
   return (
     <div className={styles.blogContainer}>
-      <SearchControls setShowFilter={setShowFilter} items={[]} />
+      <SearchControls setShowFilter={setShowFilter} items={searchItems} />
       <PostFilter isOpen={showFilter} setIsOpen={setShowFilter} />
       <PostList />
     </div>
@@ -29,28 +44,15 @@ type SearchControlsProps = {
   setShowFilter: (showFilter: boolean) => void
 }
 function SearchControls(props: SearchControlsProps) {
-  const items: SearchItemProps[] = [
-    {
-      id: 1,
-      name: "Post 1",
-    },
-    {
-      id: 2,
-      name: "Post 2",
-    },
-    {
-      id: 3,
-      name: "Post 3",
-    },
-  ]
+  const navigate = useNavigate()
 
   function handleSelect(item: SearchItemProps) {
-    // TODO: Navigate to postId
+    navigate(`/blog/${item.id}`)
   }
 
   return (
     <div className={styles.blogSearchControls}>
-      <SearchBar items={items} onSelect={() => {}} />
+      <SearchBar items={props.items} onSelect={handleSelect} />
       <button
         className={styles.openFilterButton}
         onClick={() => props.setShowFilter(true)}
