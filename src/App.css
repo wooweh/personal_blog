@@ -82,6 +82,7 @@
       var(--heading-line-height) var(--font-heading);
     --type-heading-h4: 400 var(--type-heading-h4-font-size) /
       var(--heading-line-height) var(--font-heading);
+    --top-nav-height: var(--module-7);
   }
 }
 
@@ -100,7 +101,7 @@
   --text-tertiary: #bfbfbfa9;
   --bg-primary: #1b1b1b;
   --bg-secondary: #303030;
-  --bg-tertiary: #858585;
+  --bg-tertiary: #858585a4;
 }
 
 .calm {

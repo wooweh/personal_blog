@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Core } from "./features/core/core"
 import { Authentication, WithAuth } from "./features/user/user"
 import { Home } from "./features/home/home"
+import { Blog } from "./features/blog/blog"
 /*
 
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <WithAuth page={<div>blog</div>} />,
+        element: <WithAuth page={<Blog />} />,
         errorElement: <div>error</div>,
       },
       {
