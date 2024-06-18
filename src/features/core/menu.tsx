@@ -27,12 +27,14 @@ export function Menu() {
   const theme = useAppSelector(selectTheme)
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
-  const handleClick = (event: any) => {
+
+  function handleClick(event: any) {
     setAnchorEl(event.currentTarget)
   }
-  const handleClose = () => {
+  function handleClose() {
     setAnchorEl(null)
   }
+
   return (
     <div>
       <button
@@ -66,7 +68,7 @@ export function Menu() {
       >
         <ThemeButton theme={theme} />
         <div className={styles.menuDivider}></div>
-        <MenuItems />
+        <MenuItems onClick={handleClose} />
       </MuiMenu>
     </div>
   )
@@ -142,24 +144,42 @@ function ThemeButton(props: ThemeButtonProps) {
 
 
 */
-function MenuItems() {
+type MenuItemsProps = {
+  onClick: () => void
+}
+function MenuItems(props: MenuItemsProps) {
   const navigate = useNavigate()
+
+  function handleBlogClick() {
+    props.onClick()
+    navigate("/blog")
+  }
+
+  function handleDashboardClick() {
+    props.onClick()
+    navigate("/dashboard")
+  }
+
+  function handleLogoutClick() {
+    props.onClick()
+    signUserOut()
+  }
 
   const items: MenuItemProps[] = [
     {
       icon: <BlogIcon />,
       label: "Blog",
-      onClick: () => navigate("/blog"),
+      onClick: handleBlogClick,
     },
     {
       icon: <DashboardIcon />,
       label: "Dashboard",
-      onClick: () => navigate("/dashboard"),
+      onClick: handleDashboardClick,
     },
     {
       icon: <LogoutIcon />,
       label: "Logout",
-      onClick: signUserOut,
+      onClick: handleLogoutClick,
     },
   ]
   return (

@@ -3,15 +3,7 @@
 @media screen and (min-width: 950px) {
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--bg-tertiary);
-  border-radius: var(--module-2);
-}
-
 ::-webkit-scrollbar {
-  height: 0;
-  display: flex;
-  flex-shrink: 0;
   width: 2px;
   background: none;
 }
